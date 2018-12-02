@@ -7,11 +7,26 @@ void customer_menu();
 void supplier_menu();
 void report_menu();
 void invoicing_menu();
+void search_medicine();
+void add_medicine();
+void update_inventory();
+void medicine_to_be_purchased();
+void search_customer();
+void create_customer();
+void update_customer_info();
+void search_supplier();
+void create_supplier();
+void update_supplier_info();
+void day_sale();
+void month_sale();
+void day_purchase();
+void month_purchase();
+void profit_report();
 
-void main(){
+int main(void){
 int menu_choice;
 do{
-printf("Enter 1 for medicine menu. \n Enter 2 for customer menu. \n Enter 3 for supplier menu. \n Enter 4 for report menu. \n Enter 5 for Invoicing. \n Enter 6 to quit program.");
+	printf("Enter 1 for medicine menu. \n Enter 2 for customer menu. \n Enter 3 for supplier menu. \n Enter 4 for report menu. \n Enter 5 for Invoicing. \n Enter 6 to quit program.\n");
 scanf("%d",&menu_choice);
 
 switch(menu_choice)
@@ -31,21 +46,24 @@ switch(menu_choice)
 	case 5: invoicing_menu();
 	break;
 
-	default: break;
+	case 6: printf("Exit Successful \n");
+	break;
+
+	default: printf("Invalid Input! Try Again! \n");
 
 }
 
-}while(m != 6);
+}while(menu_choice!= 6);
 
 }
 
 void medicine_menu(){
-int machine_menu_choice;
+int medicine_menu_choice;
 do{
-printf("Enter 1 to search medicine. \nEnter 2 to add medicine. \nEnter 3 to update inventory . \nEnter 4 for Medicines to be purchased list. \nEnter 5 to to go back to Main Menu.");
-scanf("%d",&machine_menu_choice);
+	printf("Enter 1 to search medicine. \nEnter 2 to add medicine. \nEnter 3 to update inventory . \nEnter 4 for Medicines to be purchased list. \nEnter 5 to to go back to Main Menu.\n");
+	scanf("%d",&medicine_menu_choice);
 
-switch(machine_menu_choice)
+switch(medicine_menu_choice)
 {
 	case 1: search_medicine();
 	break;
@@ -59,20 +77,22 @@ switch(machine_menu_choice)
 	case 4: medicine_to_be_purchased();
 	break;
 
-	default: break;
+	case 5: printf("Returning to main menu \n");
+	break;
+
+	default: printf("Invalid Input! Try Again! \n");
+
 }
-
-}while(m != 5);
-
+}while(medicine_menu_choice!= 5);
 }
 
 void customer_menu(){
 int customer_menu_choice;
 do{
-printf("Enter 1 to search customer. \nEnter 2 to create new customer. \nEnter 3 to update customer information. \nEnter 4 to go back to Main Menu.");
-scanf("%d",&machine_menu_choice);
+printf("Enter 1 to search customer. \nEnter 2 to create new customer. \nEnter 3 to update customer information. \nEnter 4 to go back to Main Menu.\n");
+scanf("%d",&customer_menu_choice);
 
-switch(machine_menu_choice)
+switch(customer_menu_choice)
 {
 	case 1: search_customer();
 	break;
@@ -83,18 +103,22 @@ switch(machine_menu_choice)
 	case 3: update_customer_info();
 	break;
 
-	default: break;
+	case 4: printf("Returning to main menu!");
+	break;
+
+	default: printf("Invalid Input! Try Again! \n");
+	
 }
 
-}while(m != 5);
+}while(customer_menu_choice!= 4);
 
 }
 
 void supplier_menu(){
 int supplier_menu_choice;
 do{
-printf("Enter 1 to search supplier. \nEnter 2 to create new supplier. \nEnter 3 to update supplier information. \nEnter 4 to go back to Main Menu.");
-scanf("%d",&supplier_menu_choice);
+	printf("Enter 1 to search supplier. \nEnter 2 to create new supplier. \nEnter 3 to update supplier information. \nEnter 4 to go back to Main Menu.");
+	scanf("%d",&supplier_menu_choice);
 
 switch(supplier_menu_choice)
 {
@@ -107,14 +131,18 @@ switch(supplier_menu_choice)
 	case 3: update_supplier_info();
 	break;
 
-	default: break;
+	case 4: printf("Returning to main menu \n");
+	break;
+
+	default: printf("Invalid Input! Try Again! \n");
+
 }
 
-}while(m != 4);
+}while(supplier_menu_choice!= 4);
 
 }
 
-void main(){
+void report_menu(){
 int report_menu_choice;
 do{
 printf("Enter 1 for Todays sales. \n Enter 2 for this months sales. \n Enter 3 for todays purchases. \n Enter 4 for this months purchases. \n Enter 5 for profit report. \n Enter 6 to go back to main menu.");
@@ -137,15 +165,18 @@ switch(report_menu_choice)
 	case 5: profit_report();
 	break;
 
-	default: break;
+	case 6: printf("Returning to main menu \n");
+	break;
+
+	default: printf("Invalid Input! Try Again! \n");
 
 }
 
-}while(m != 6);
+}while(report_menu_choice != 6);
 
 }
 
-void invoicing_menu();{
+void invoicing_menu(){
 	
 }
 
