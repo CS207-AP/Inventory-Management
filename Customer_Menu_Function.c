@@ -121,5 +121,9 @@ void cusmen()
         printf("Do you want to go again(y/n)?");
         scanf("%c",&ch);
     }
+<<<<<<< HEAD:CusMen.c
   }while(ch=='Y' || ch=='y');
 }
+=======
+}
+>>>>>>> 5a82015c330405c43d4beb1aae785155053e189a:Customer_Menu_Function.c

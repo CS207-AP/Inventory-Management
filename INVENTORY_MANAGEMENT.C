@@ -2,21 +2,30 @@
 #include<stdlib.h>
 #include<string.h>
 
+// For medicines
 void medicine_menu();
-void customer_menu();
-void supplier_menu();
-void report_menu();
-void invoicing_menu();
-void search_medicine();
 void add_medicine();
-void update_inventory();
+void search_medicine();
 void medicine_to_be_purchased();
+void update_inventory();
+
+// For customer 
+void customer_menu();
 void search_customer();
 void create_customer();
 void update_customer_info();
+
+// For supplier
+void supplier_menu();
 void search_supplier();
 void create_supplier();
 void update_supplier_info();
+
+//For billing
+void invoicing_menu();
+
+//For reports
+void report_menu();
 void day_sale();
 void month_sale();
 void day_purchase();
