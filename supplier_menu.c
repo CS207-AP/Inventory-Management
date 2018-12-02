@@ -8,10 +8,61 @@ struct supplier{
     char supplier_contact[13];
     char supplier_email[40];
 };
-
+sup_search_byid(){
+    printf("Enter the supplier ID to find details!\n");
+    int temp_id;
+    struct supplier temp;
+    scanf("%d", temp_id);
+    FILE *f=fopen("supplier.txt", "a+");
+    rewind(f);
+    while(fscanf(f,"%d \n %s\n %s\n %d\n %s\n", temp.supplier_id, temp.supplier_name, temp.supplier_city, temp.supplier_contact, temp.supplier_email)!=EOF){
+        if(temp_id==temp.supplier_id){
+            printf("Supplier Found!\n");
+            printf("Supplier id: %d\n", temp.supplier_id);
+            printf("Supplier name: %s\n", temp.supplier_name);
+            printf("Supplier city: %s\n", temp.supplier_city);
+            printf("Supplier contact: %d\n", temp.supplier_contact);
+            printf("Supplier email: %s\n", temp.supplier_email);
+        }
+    }
+    fclose(f);
+    return;
+}
+sup_search_byname(){
+    printf("Enter the supplier name to find details!\n");
+    char temp_name[30];
+    struct supplier temp;
+    scanf("%d", &temp_name);
+    FILE *f=fopen("supplier.txt", "a+");
+    rewind(f);
+    while(fscanf(f,"%d \n %s\n %s\n %d\n %s\n", temp.supplier_id, temp.supplier_name, temp.supplier_city, temp.supplier_contact, temp.supplier_email)!=EOF){
+        if(strcmp(temp_name, temp.supplier_name)==0){
+            printf("Supplier Found!\n");
+            printf("Supplier id: %d\n", temp.supplier_id);
+            printf("Supplier name: %s\n", temp.supplier_name);
+            printf("Supplier city: %s\n", temp.supplier_city);
+            printf("Supplier contact: %d\n", temp.supplier_contact);
+            printf("Supplier email: %s\n", temp.supplier_email);
+        }
+    }
+    fclose(f);
+    return;
+}
 void search_supplier(){
-    
-
+    int sup_search_choice;
+    do{
+    printf("Enter 1 to search supplier by id!\n Enter 2 to search supplier by name!\n");
+    scanf("%d", sup_search_choice);
+    switch(sup_search_choice){
+        case 1: sup_search_byid();
+        break;
+        case 2: sup_search_byname();
+        break;
+        case 3: printf("Exit Successful!\n");
+        break;
+        default:printf("Invalid Input!\n");
+    }
+    }while(sup_search_choice!=3);
 }
 void create_supplier(){
     struct supplier temp;
@@ -58,7 +109,5 @@ switch(supplier_menu_choice)
 	default: printf("Invalid Input! Try Again! \n");
 
 }
-
 }while(supplier_menu_choice!= 4);
-
 }
