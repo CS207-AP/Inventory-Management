@@ -17,7 +17,10 @@ int main()
 
 void cusmen()
 {
-    printf("1. To add a new customer\n2. To view details of existing customer\n");
+    char ch='y';
+    do
+    {
+    printf("1. To add a new customer\n2. To view details of existing customer\n3. To update an existing record\n");
     int c;
     scanf("%d",&c);
     switch(c)
@@ -54,6 +57,69 @@ void cusmen()
                 }
             
             fclose(fp1);
+            break;
         }
+        case 3:
+        {
+            printf("Enter the customer ID to update that particular record\n");
+            int n1;
+            struct cusmen c;
+            scanf("%d",&n1);
+            FILE *fp2=fopen("cusmen.txt","a+");
+            FILE *fp2_1=fopen("temp.txt","a+");
+            rewind(fp2);
+            while(fscanf(fp2,"%s %d %ld %s",&c.name,&c.id,&c.phone,&c.med)!=EOF)
+            {
+                if(n1!=c.id)
+                fprintf(fp2_1,"%s \n%d \n%ld \n %s\n",c.name,c.id,c.phone,c.med);
+                else
+                {
+                    printf("1. To update customer name\n2. To update customer ID\n3. To update customer phone number\n4. To update customer medicine\n");
+                    int choice;
+                    scanf("%d",&choice);
+                    switch(choice)
+                    {
+                        case 1:
+                        {
+                            printf("Enter the name\n");
+                            scanf("%s",&c.name);
+                            break;
+                        }
+                        case 2:
+                        {
+                            printf("Enter the ID\n");
+                            scanf("%d",&c.id);
+                            break;
+                        }
+                        case 3:
+                        {
+                            printf("Enter the phone number\n");
+                            scanf("%ld",&c.phone);
+                            break;
+                        }
+                        case 4:
+                        {
+                            printf("Enter the medicine name\n");
+                            scanf("%s",&c.med);
+                            break;
+                        }
+                    }
+                    fprintf(fp2_1,"%s \n%d \n%ld \n %s\n",c.name,c.id,c.phone,c.med);
+                
+                }
+                fclose(fp2_1);
+                fclose(fp2);
+                fp2=fopen("cusmen.txt","w");
+                fp2_1=fopen("temp.txt","r");
+                while(fscanf(fp2_1,"%s %d %ld %s",&c.name,&c.id,&c.phone,&c.med)!=EOF)
+                fprintf(fp2,"%s \n%d \n%ld \n %s\n",c.name,c.id,c.phone,c.med);
+                fclose(fp2);
+                fclose(fp2_1);
+            }
+          
+        }
+        printf("Do you want to go again(y/n)?");
+        scanf("%c",&ch);
     }
+  }while(ch=='Y' || ch=='y');
 }
