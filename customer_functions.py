@@ -46,5 +46,3 @@ def customer_update():
                     break
        
                    
-#new_customer()
-customer_update()
