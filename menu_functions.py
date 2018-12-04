@@ -7,7 +7,7 @@ def medicine_menu():
     m_menu_choice=0
     while(m_menu_choice!=5):
         print("Enter 1 to search medicine. \nEnter 2 to add medicine. \nEnter 3 to update inventory . \nEnter 4 for Medicines to be purchased list. \nEnter 5 to to go back to Main Menu.\n")
-        m_menu_choice=input()
+        m_menu_choice=input("Enter Your Choice!")
         if(m_menu_choice==1):
             medicine_functions.search_medicine()
         elif(m_menu_choice==2):
@@ -22,7 +22,7 @@ def customer_menu():
     c_menu_choice=0
     while(c_menu_choice!=4):
         print("Enter 1 to search customer. \nEnter 2 to create new customer. \nEnter 3 to update customer information. \nEnter 4 to go back to Main Menu.\n")
-        c_menu_choice=input()
+        c_menu_choice=input("Enter Your Choice!")
         if(c_menu_choice==1):
            customer_functions.search_customer()
         elif(c_menu_choice==2):
@@ -35,7 +35,7 @@ def supplier_menu():
     s_menu_choice=0
     while(s_menu_choice!=4):
         print("Enter 1 to search supplier. \nEnter 2 to create new supplier. \nEnter 3 to update supplier information. \nEnter 4 to go back to Main Menu.")
-        s_menu_choice=input()
+        s_menu_choice=input("Enter Your Choice!")
         if(s_menu_choice==1):
             supplier_functions.search_supplier()
         elif(s_menu_choice==2):
@@ -48,6 +48,7 @@ def report_menu():
     r_menu_choice=0
     while(r_menu_choice!=6):
         print("Enter 1 for Todays sales. \n Enter 2 for this months sales. \n Enter 3 for todays purchases. \n Enter 4 for this months purchases. \n Enter 5 for profit report. \n Enter 6 to go back to main menu.")
+        r_menu_choice=input("Enter Your Choice!")
         if(r_menu_choice==1):
             report_functions.day_sale()
         elif(r_menu_choice==2):
@@ -61,4 +62,5 @@ def report_menu():
         else:
             print("Invalid Input! Try Again!\n")
 def invoicing_menu():
+    print("Generating Invoice! Please be patient!\n")
     invoicing_functions.invoice()
