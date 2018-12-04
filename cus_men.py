@@ -19,4 +19,32 @@ def customer_search():
                 print(row['Customer_Name'],row['Customer_ID'],row['Customer_Phone'],row['Customer_Medicine'])
 
 def customer_update():
-
+    import csv
+    with open('cus_men.csv','r+') as csvfile:
+        names=['Customer_Name','Customer_ID','Customer_Phone','Customer_Medicine']
+        writer=csv.DictWriter(csvfile,fieldnames=names)    
+        no=input('Enter the id of the customer you want to modify')
+        reader=csv.DictReader(csvfile)
+        for row in reader:
+            if row['Customer_ID']==no:
+                choice=int(input('1. To update ID\n2. To update the Name\n3.To update the phone number\n4.To update the medicine name'))
+                if(choice==1):
+                    row['Customer_ID']= input("Enter new ID: ")
+                    writer.writerow({'Customer_Name':row['Customer_Name'],'Customer_ID':row['Customer_ID'],'Customer_Phone':row['Customer_Phone'],"Customer_Medicine":row['Customer_Medicine']})
+                    break
+                elif(choice==2):
+                    row['Customer_Name']=input("Enter the new name: ")
+                    writer.writerow({'Customer_Name':row['Customer_Name'],'Customer_ID':row['Customer_ID'],'Customer_Phone':row['Customer_Phone'],"Customer_Medicine":row['Customer_Medicine']})
+                    break
+                elif(choice==3):
+                    row['Customer_Phone']=input("Enter the new phone number: ")
+                    writer.writerow({'Customer_Name':row['Customer_Name'],'Customer_ID':row['Customer_ID'],'Customer_Phone':row['Customer_Phone'],"Customer_Medicine":row['Customer_Medicine']})
+                    break
+                elif(choice==4):
+                    row['Customer_Medicine']=input("Enter the medicine name")
+                    writer.writerow({'Customer_Name':row['Customer_Name'],'Customer_ID':row['Customer_ID'],'Customer_Phone':row['Customer_Phone'],"Customer_Medicine":row['Customer_Medicine']})
+                    break
+       
+                   
+#new_customer()
+customer_update()
