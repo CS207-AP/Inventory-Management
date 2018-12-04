@@ -1,5 +1,5 @@
 import csv
-def add_medicine:
+def add_medicine():
 	with open('medicine.csv','a+') as csvfile:
 		columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date',\
 		'pur_date','comp_name', 'supp_name','cost','total','to_pur']
