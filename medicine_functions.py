@@ -1,7 +1,7 @@
 import csv
 def add_medicine():
 	with open('medicine.csv','a+') as csvfile:
-		names = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date','pur_date','comp_name', 'supp_name','cost','total']
+		columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date','pur_date','comp_name', 'supp_name','cost','total']
 		writer = csv.DictWriter(csvfile,fieldnames = names)
 		writer.writeheader()
 		medi_name = input("Enter medicine name")
