@@ -6,8 +6,6 @@ while menu_choice != 6:
     menu_choice=int(input("Enter Your Choice!\n"))
     if menu_choice==1:
         menu_functions.medicine_menu()
-    else:
-        print("Invalid Input! Try Again! \n")
     elif menu_choice==2:
         menu_functions.customer_menu()
     elif menu_choice==3:
@@ -16,4 +14,6 @@ while menu_choice != 6:
         menu_functions.report_menu()
     elif menu_choice==5:
         menu_functions.invoicing_menu()
+    else:
+        print("Invalid Input! Try Again! \n")    
 sys.exit()
