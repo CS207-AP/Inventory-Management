@@ -1,5 +1,4 @@
 import csv
-
 from tempfile import NamedTemporaryFile
 import shutil
 
