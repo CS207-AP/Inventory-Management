@@ -26,7 +26,7 @@ def customer_menu():
         if(c_menu_choice==1):
            customer_functions.search_customer()
         elif(c_menu_choice==2):
-            customer_functions.create_customer()
+            customer_functions.new_customer()
         elif(c_menu_choice==3):
             customer_functions.update_customer_info()
         else:
@@ -62,11 +62,13 @@ def report_menu():
         else:
             print("Invalid Input! Try Again!\n")
 def invoicing_menu():
-    print("Enter 1 for Supplier invoive. \n Enter 2 for customer Invoice.")
-    i_menu_choice=input("Enter Your Choice!")
+    i_menu_choice=0
+    while(i_menu_choice!=3):
+        print("Enter 1 for Supplier invoive. \n Enter 2 for customer Invoice. \nEnter 3 to return to main menu.")
+        i_menu_choice=input("Enter Your Choice!")
         if(i_menu_choice==1):
-            invoicing_functions.supp_invoice()
+            invoicing_functions.sup_invoice()
         elif(i_menu_choice==2):
             invoicing_functions.cust_invoice()
         else:
-            print("Invalid Input! Try Again!\n")    
+            print("Invalid Input! Try Again!\n")

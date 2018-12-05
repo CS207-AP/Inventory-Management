@@ -1,12 +1,23 @@
 from tkinter import *
+import menu_functions
+import sys
+#Medicine Menu
 def clickedbtn1():
-    print("Hello")
+    medicine_menu_window = Tk()
+    medicine_menu_window = Tk()
+    medicine_menu_window.geometry('350x200')
+    
+
+#Customer Menu
 def clickedbtn2():
     print("Hello")
+#Supplier Menu
 def clickedbtn3():
     print("Hello")
+#Report Menu
 def clickedbtn4():
     print("Hello")
+#Invoicing Menu
 def clickedbtn5():
     print("Hello")
 window = Tk()
@@ -27,4 +38,21 @@ btn4.grid(column=0, row=5)
 btn5 = Button(window, text="Invoicing Menu",fg="red", command=clickedbtn5)
 btn5.grid(column=0, row=6)
 window.mainloop()
+menu_choice=0
+while menu_choice != 6:
+    print ("Enter 1 for medicine menu. \nEnter 2 for customer menu. \nEnter 3 for supplier menu. \nEnter 4 for report menu. \nEnter 5 for Invoicing. \nEnter 6 to quit program.\n")
+    menu_choice=int(input("Enter Your Choice!\n"))
+    if menu_choice==1:
+        menu_functions.medicine_menu()
+    elif menu_choice==2:
+        menu_functions.customer_menu()
+    elif menu_choice==3:
+        menu_functions.supplier_menu()
+    elif menu_choice==4:
+        menu_functions.report_menu()
+    elif menu_choice==5:
+        menu_functions.invoicing_menu()
+    else:
+        print("Invalid Input! Try Again! \n")    
+sys.exit()
 
