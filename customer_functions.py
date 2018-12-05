@@ -2,13 +2,23 @@ import csv
 from tempfile import NamedTemporaryFile
 import shutil
 
+def customer_id_generator():
+    with open('cus_men.csv','r') as csvfile:
+        reader=csv.DictReader(csvfile)
+        i=1
+        for row in reader:
+            if int(row['Customer_ID'])==i:
+                i=i+1            
+    return i
+
 def new_customer():
     
     with open('cus_men.csv','a+') as csvfile:
         names=['Customer_Name','Customer_ID','Customer_Phone','Customer_Medicine']
         writer=csv.DictWriter(csvfile,fieldnames=names)
         Customer_Name=input('Enter the name of the customer: ')
-        Customer_ID=input('Enter the customer ID: ')
+        Customer_ID=customer_id_generator()
+        print('Unique customer ID generated: ',Customer_ID)
         Customer_Phone=input('Enter the phone number of the customer: ')
         Customer_Medicine=input('Enter the medicine that the customer needs: ')
         writer.writerow({'Customer_Name':Customer_Name,'Customer_ID':Customer_ID,'Customer_Phone':Customer_Phone,"Customer_Medicine":Customer_Medicine})
@@ -49,3 +59,4 @@ def update_customer_info():
             writer.writerow(row)
 
     shutil.move(tempfile.name, 'cus_men.csv')
+new_customer()
