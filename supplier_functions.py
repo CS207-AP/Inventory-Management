@@ -1,4 +1,6 @@
 import csv
+from tempfile import NamedTemporaryFile
+import shutil
 def create_supplier():
         with open('supplier.csv', 'a+') as csvfile:
                 columns = ['sup_name', 'sup_id', 'sup_city', 'sup_contact', 'sup_email']
@@ -35,4 +37,29 @@ def search_supplier():
                 else:
                         print("Invalid Input! Try again!\n")
 def update_supplier_info():
-        print("TEST")
+        tempfile = NamedTemporaryFile(mode='w', delete=False)
+        columns = ['sup_name', 'sup_id', 'sup_city', 'sup_contact', 'sup_email']
+        with open('supplier.csv', 'r') as csvfile, tempfile:
+                reader = csv.DictReader(csvfile)
+                writer = csv.DictWriter(tempfile, fieldnames=columns)
+                writer.writeheader()
+                suppp_name=input('Enter the name of the supplier you want to modify!\n')
+                for r in reader:
+                        if r['sup_name'] == suppp_name:
+                                print('Enter 1 to update supplier name.\nEnter 2 to update supplier id.\nEnter 3 to update supplier city.\nEnter 4 to update supplier contact no.\nEnter 5 to update supplier email id.\n')
+                                choice=int(input('Enter your choice!\n'))
+                                if(choice==1):
+                                        r['sup_name']=input("Enter updated name!\n")
+                                elif(choice==2):
+                                        r['sup_id']=int(input("Enter updated id!\n"))
+                                elif(choice==3):
+                                        r['sup_city']=input("Enter updated city!\n")
+                                elif(choice==4):
+                                        r['sup_contact']=int(input("Enter updated contact!\n"))
+                                elif(choice==5):
+                                        r['sup_email']=int(input("Enter updated email id!\n"))
+                                else:
+                                        print("Invalid Input!\n")
+                        r = {'sup_name':r['sup_name'], 'sup_id':r['sup_id'], 'sup_city':r['sup_city'], 'sup_contact':r['sup_contact'], 'sup_email':r['sup_email']}
+                        writer.writerow(r)
+        shutil.move(tempfile.name, 'supplier.csv')
