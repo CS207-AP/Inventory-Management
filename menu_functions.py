@@ -65,7 +65,7 @@ def invoicing_menu():
     print("Enter 1 for Supplier invoive. \n Enter 2 for customer Invoice.")
     i_menu_choice=input("Enter Your Choice!")
         if(i_menu_choice==1):
-            invoicing_functions.supp_invoice()
+            invoicing_functions.sup_invoice()
         elif(i_menu_choice==2):
             invoicing_functions.cust_invoice()
         else:
