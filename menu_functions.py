@@ -62,5 +62,11 @@ def report_menu():
         else:
             print("Invalid Input! Try Again!\n")
 def invoicing_menu():
-    print("Generating Invoice! Please be patient!\n")
-    invoicing_functions.invoice()
+    print("Enter 1 for Supplier invoive. \n Enter 2 for customer Invoice.")
+    i_menu_choice=input("Enter Your Choice!")
+        if(i_menu_choice==1):
+            invoicing_functions.supp_invoice()
+        elif(i_menu_choice==2):
+            invoicing_functions.cust_invoice()
+        else:
+            print("Invalid Input! Try Again!\n")    

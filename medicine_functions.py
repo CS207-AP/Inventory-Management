@@ -37,7 +37,7 @@ def search_medicine():
 def update_medicine():
     tempfile = NamedTemporaryFile(mode='w', delete=False)
     columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date',\
-		'pur_date','comp_name', 'supp_id','cost','total','to_pur']
+    'pur_date','comp_name', 'supp_id','cost','total','to_pur']
     with open('medicine.csv', 'r') as csvfile, tempfile:
         reader = csv.DictReader(csvfile)
         writer = csv.DictWriter(tempfile, fieldnames=columns)
