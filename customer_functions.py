@@ -9,7 +9,7 @@ def new_customer():
         writer=csv.DictWriter(csvfile,fieldnames=names)
         Customer_Name=input('Enter the name of the customer: ')
         Customer_ID=input('Enter the customer ID: ')
-        Customer_Phone=(input('Enter the phone number of the customer: '))
+        Customer_Phone=input('Enter the phone number of the customer: ')
         Customer_Medicine=input('Enter the medicine that the customer needs: ')
         writer.writerow({'Customer_Name':Customer_Name,'Customer_ID':Customer_ID,'Customer_Phone':Customer_Phone,"Customer_Medicine":Customer_Medicine})
 
@@ -21,6 +21,7 @@ def search_customer():
         for row in reader:
             if row['Customer_ID']==no:
                 print(row['Customer_Name'],row['Customer_ID'],row['Customer_Phone'],row['Customer_Medicine'])
+
 def update_customer_info():
     tempfile = NamedTemporaryFile(mode='w', delete=False)
     names=['Customer_Name','Customer_ID','Customer_Phone','Customer_Medicine']
@@ -28,10 +29,10 @@ def update_customer_info():
         reader = csv.DictReader(csvfile)
         writer = csv.DictWriter(tempfile, fieldnames=names)
         writer.writeheader()
-        idno =input('Enter the id of the customer you want to modify')
+        idno =input('Enter the id of the customer you want to modify: ')
         for row in reader:
             if row['Customer_ID'] == idno:
-                choice=int(input('1. To update the Name\n2.To update the phone number\n3.To update the medicine name'))
+                choice=int(input('1. To update the Name\n2. To update the phone number\n3. To update the medicine name\n'))
 
                 if(choice==1):
                     row['Customer_Name']=input("Enter the new name: ")
@@ -48,10 +49,3 @@ def update_customer_info():
             writer.writerow(row)
 
     shutil.move(tempfile.name, 'cus_men.csv')
-
-
-
-    
-                
-       
-                   
