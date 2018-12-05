@@ -1,25 +1,109 @@
 from tkinter import *
-import menu_functions
 import sys
 #Medicine Menu
+def mclickedbtn1():
+    print("Hello")
+def mclickedbtn2():
+    print("Hello")
+def mclickedbtn3():
+    print("Hello")
+def mclickedbtn4():
+    print("Hello")
 def clickedbtn1():
     medicine_menu_window = Tk()
-    medicine_menu_window = Tk()
     medicine_menu_window.geometry('350x200')
-    
-
+    medicine_menu_window.title("Pharmacy Management Software")
+    lbl = Label(medicine_menu_window, text="Medicine Menu!")
+    lbl.grid(column=0, row=0)
+    lbl2 = Label(medicine_menu_window, text="What would you like to do!")
+    lbl2.grid(column=0, row=1)
+    btn1 = Button(medicine_menu_window, text="Add New Medicine",fg="red", command=mclickedbtn1)
+    btn1.grid(column=0, row=2)
+    btn2 = Button(medicine_menu_window, text="Search Medicine",fg="red", command=mclickedbtn2)
+    btn2.grid(column=0, row=3)
+    btn3 = Button(medicine_menu_window, text="Update Medicine",fg="red", command=mclickedbtn3)
+    btn3.grid(column=0, row=4)
+    btn4 = Button(medicine_menu_window, text="Medicines to be purchased",fg="red", command=mclickedbtn4)
+    btn4.grid(column=0, row=5)
+    btn4 = Button(medicine_menu_window, text="Return to main menu",fg="red", command=mclickedbtn4)
+    btn4.grid(column=0, row=6)
+    medicine_menu_window.mainloop()
 #Customer Menu
 def clickedbtn2():
-    print("Hello")
+    c_menu_window = Tk()
+    c_menu_window.geometry('350x200')
+    c_menu_window.title("Pharmacy Management Software")
+    lbl = Label(c_menu_window, text="Customer Menu!")
+    lbl.grid(column=0, row=0)
+    lbl2 = Label(c_menu_window, text="What would you like to do!")
+    lbl2.grid(column=0, row=1)
+    btn1 = Button(c_menu_window, text="Search Customer",fg="red", command=mclickedbtn1)
+    btn1.grid(column=0, row=2)
+    btn2 = Button(c_menu_window, text="New Customer",fg="red", command=mclickedbtn2)
+    btn2.grid(column=0, row=3)
+    btn3 = Button(c_menu_window, text="Update Customer Info",fg="red", command=mclickedbtn3)
+    btn3.grid(column=0, row=4)
+    btn4 = Button(c_menu_window, text="Return to main menu",fg="red", command=mclickedbtn4)
+    btn4.grid(column=0, row=5)
+    c_menu_window.mainloop()
 #Supplier Menu
 def clickedbtn3():
-    print("Hello")
+    s_menu_window = Tk()
+    s_menu_window.geometry('350x200')
+    s_menu_window.title("Pharmacy Management Software")
+    lbl = Label(s_menu_window, text="Supplier Menu!")
+    lbl.grid(column=0, row=0)
+    lbl2 = Label(s_menu_window, text="What would you like to do!")
+    lbl2.grid(column=0, row=1)
+    btn1 = Button(s_menu_window, text="Search Supplier",fg="red", command=mclickedbtn1)
+    btn1.grid(column=0, row=2)
+    btn2 = Button(s_menu_window, text="New Supplier",fg="red", command=mclickedbtn2)
+    btn2.grid(column=0, row=3)
+    btn3 = Button(s_menu_window, text="Update Supplier Info",fg="red", command=mclickedbtn3)
+    btn3.grid(column=0, row=4)
+    btn4 = Button(s_menu_window, text="Return to main menu",fg="red", command=mclickedbtn4)
+    btn4.grid(column=0, row=5)
+    s_menu_window.mainloop()
 #Report Menu
 def clickedbtn4():
-    print("Hello")
+    r_menu_window = Tk()
+    r_menu_window.geometry('350x200')
+    r_menu_window.title("Pharmacy Management Software")
+    lbl = Label(r_menu_window, text="Supplier Menu!")
+    lbl.grid(column=0, row=0)
+    lbl2 = Label(r_menu_window, text="What would you like to do!")
+    lbl2.grid(column=0, row=1)
+    btn1 = Button(r_menu_window, text="Day Sales",fg="red", command=mclickedbtn1)
+    btn1.grid(column=0, row=2)
+    btn2 = Button(r_menu_window, text="Month Sales",fg="red", command=mclickedbtn2)
+    btn2.grid(column=0, row=3)
+    btn3 = Button(r_menu_window, text="Day Purchase",fg="red", command=mclickedbtn3)
+    btn3.grid(column=0, row=4)
+    btn3 = Button(r_menu_window, text="Month Purchase",fg="red", command=mclickedbtn3)
+    btn3.grid(column=0, row=5)
+    btn3 = Button(r_menu_window, text="Profit Report",fg="red", command=mclickedbtn3)
+    btn3.grid(column=0, row=6)
+    btn4 = Button(r_menu_window, text="Return to main menu",fg="red", command=mclickedbtn4)
+    btn4.grid(column=0, row=7)
+    r_menu_window.mainloop()
 #Invoicing Menu
 def clickedbtn5():
-    print("Hello")
+    r_menu_window = Tk()
+    r_menu_window.geometry('350x200')
+    r_menu_window.title("Pharmacy Management Software")
+    lbl = Label(r_menu_window, text="Invoice Menu!")
+    lbl.grid(column=0, row=0)
+    lbl2 = Label(r_menu_window, text="What would you like to do!")
+    lbl2.grid(column=0, row=1)
+    btn1 = Button(r_menu_window, text="Supplier Invoice",fg="red", command=mclickedbtn1)
+    btn1.grid(column=0, row=2)
+    btn2 = Button(r_menu_window, text="Customer Invoice",fg="red", command=mclickedbtn2)
+    btn2.grid(column=0, row=3)
+    btn4 = Button(r_menu_window, text="Return to main menu",fg="red", command=mclickedbtn4)
+    btn4.grid(column=0, row=4)
+    r_menu_window.mainloop()
+
+#Main Menu
 window = Tk()
 window.geometry('350x200')
 window.title("Pharmacy Management Software")
@@ -38,21 +122,3 @@ btn4.grid(column=0, row=5)
 btn5 = Button(window, text="Invoicing Menu",fg="red", command=clickedbtn5)
 btn5.grid(column=0, row=6)
 window.mainloop()
-menu_choice=0
-while menu_choice != 6:
-    print ("Enter 1 for medicine menu. \nEnter 2 for customer menu. \nEnter 3 for supplier menu. \nEnter 4 for report menu. \nEnter 5 for Invoicing. \nEnter 6 to quit program.\n")
-    menu_choice=int(input("Enter Your Choice!\n"))
-    if menu_choice==1:
-        menu_functions.medicine_menu()
-    elif menu_choice==2:
-        menu_functions.customer_menu()
-    elif menu_choice==3:
-        menu_functions.supplier_menu()
-    elif menu_choice==4:
-        menu_functions.report_menu()
-    elif menu_choice==5:
-        menu_functions.invoicing_menu()
-    else:
-        print("Invalid Input! Try Again! \n")    
-sys.exit()
-
