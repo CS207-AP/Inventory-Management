@@ -24,14 +24,14 @@ Due to lack of time and lack of understanding of python we couldn't make GUI pro
 ## Problems faced
 
 * The process of writing the entire program in C became really complex and confusing.
-* Implementation of GUI seemed almost impossible as there were no modern day libraries or modules for C to do the same.
-* Switching to Python, an entirely new language, posed another set of problems.
+* Implementation of GUI seemed almost impossible as there were no modern day libraries or modules in C for graphics.
+* Switching to Python, an entirely new language, posed a set of different problems.
 * After writing our code for all the features of our program, we went on to make the GUI. While researching about the same we came across the following modules to make a GUI-
     * Tkinter
     * EasyGUI
     * PYQT
     
-One might say that we got a little too ambitious as we weren't aware about the challenges learning a language completely foreign to us would pose. After spending 2 days working with above mentioned modules to implement and make the GUI work, we finally had to give up as we just didn't know python well enough. 
+* One might say that we got a little too ambitious as we weren't aware about the challenges learning a language completely foreign to us would pose. After spending 2 days working with above mentioned modules to implement and make the GUI work, we finally had to give up as we just didn't know python well enough. 
 
 
 https://www.w3schools.com/python/python_datetime.asp
