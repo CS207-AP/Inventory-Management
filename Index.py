@@ -2,8 +2,20 @@ import menu_functions
 import sys
 menu_choice=0
 while menu_choice != 6:
-    print ("Enter 1 for medicine menu. \nEnter 2 for customer menu. \nEnter 3 for supplier menu. \nEnter 4 for report menu. \nEnter 5 for Invoicing. \nEnter 6 to quit program.\n")
-    menu_choice=int(input("Enter Your Choice!\n"))
+    print('-----------------------------')
+    print("|Enter 1 for medicine menu  |")
+    print('----------------------------')
+    print('|Enter 2 for customer menu  |')
+    print('----------------------------')
+    print('|Enter 3 for supplier menu  |')
+    print('----------------------------') 
+    print('|Enter 4 for report menu    |')
+    print('----------------------------')
+    print('|Enter 5 for invoicing      |')
+    print('----------------------------')
+    print('|Enter 6 to quit the program|')
+    print('-----------------------------')
+    menu_choice=int(input("Enter Your Choice\n"))
     if menu_choice==1:
         menu_functions.medicine_menu()
     elif menu_choice==2:
