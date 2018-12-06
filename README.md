@@ -40,7 +40,11 @@ https://www.w3schools.com/python/python_datetime.asp
 ## Contributors
 
 ### Shivam Sharda
-
+* Github
+* Customer Functions
 ### Vir Jhangiani
-
+* Github
+* Medicine Menu
 ### Harpreet Virk
+* Github
+* Supplier Menu
