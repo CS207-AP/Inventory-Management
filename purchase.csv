@@ -1,5 +1,2 @@
-medi_name,med_id,unit,quantity,pur_date,sup_name,sup_id,total
-Uprise,124,1324.0,8,234756,1234,123,10592.0
-Uprise,124,1234.0,5,1324,1234,123,6170.0
-Uprise,1,2.0,10,1234,1234,12,20.0
-Uprise,1,2.0,20,1234,1324,12,40.0
+medi_name,med_id,unit,quantity,pur_date,sup_id,cost
+Allegra,1,50.0,20,123,1,1000.0
