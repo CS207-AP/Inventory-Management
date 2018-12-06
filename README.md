@@ -1,9 +1,9 @@
 # Pharmacy Management Software
 
-##Table of Contents
+## Table of Contents
 
-*[Project Aim](#project-aim)
+* [Project Aim](#project-aim)
 
-##Project Aim
+## Project Aim
 
 
