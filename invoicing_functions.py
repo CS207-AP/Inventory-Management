@@ -35,6 +35,7 @@ def sup_invoice():
 			'supp_id':row['supp_id'],'to_pur':row['to_pur']}
 			writer.writerow(row)
 	shutil.move(tempfile.name, 'medicine.csv') 
+<<<<<<< HEAD
 
 def cust_invoice():
 	i = 0
@@ -102,3 +103,7 @@ def cust_invoice():
 
 
 
+=======
+def cust_invoice():
+	print("TEST")
+>>>>>>> a895fa4797e286877fa1d2e124ff5ccf58d7e619

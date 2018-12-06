@@ -73,9 +73,4 @@ def medicine_to_be_purchased():
 		for row in reader:
 			if int(row['to_pur']) >0:
 				print('Name:', row['medi_name'],'\n','Quantity:',row['quantity'],'\n','Minimum Quantity:',row['min_quantity']\
-				,'\n','To be purchased:',row['to_pur'],'\n','Supplier ID:',row['sup_id'])
-
-add_medicine()
-search_medicine()
-update_medicine()  
-medicine_to_be_purchased()              
+				,'\n','To be purchased:',row['to_pur'],'\n','Supplier ID:',row['sup_id'])           
