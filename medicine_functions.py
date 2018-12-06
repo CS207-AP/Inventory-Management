@@ -1,10 +1,11 @@
 import csv
 from tempfile import NamedTemporaryFile
 import shutil
+import datetime
+d = datetime.datetime.now()
 def add_medicine():
 	with open('medicine.csv','a+') as csvfile:
-		columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date',\
-		'pur_date','comp_name', 'sup_id','to_pur']
+		columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'comp_name', 'sup_id','to_pur']
 		writer = csv.DictWriter(csvfile,fieldnames = columns)
 		writer.writeheader()
 		medi_name = input("Enter medicine name:")
@@ -13,26 +14,26 @@ def add_medicine():
 		unit = float(input("Enter cost price"))
 		quantity = int(input("Enter quantity"))
 		min_quantity = int(input("Enter min quantity to maintain"))
-		exp_date = input("Enter exp date")
-		pur_date= input("Enter purchase date")
+		
+		
 		comp_name = input("Enter company name")
 		sup_id = input("Enter supplier ID")
-		supp = ""
 		cost = unit * quantity
 		to_pur = min_quantity - quantity
 		if quantity >min_quantity:
 			to_pur = 0
 		writer.writerow({'medi_name':medi_name,'med_id':med_id,'sale':sale,'unit':unit,'quantity':quantity,\
-		'min_quantity':min_quantity,'exp_date':exp_date,'pur_date':pur_date,'comp_name':comp_name, \
-		'sup_id':sup_id,'to_pur':to_pur})
+		'min_quantity':min_quantity,'comp_name':comp_name,'sup_id':sup_id,'to_pur':to_pur})
 
 		
 		with open('purchase.csv','a+') as csvfile:
-			columns = ['medi_name','med_id','unit','quantity','pur_date', 'sup_id','cost']
+			pur_date= x.strftime("%d")
+			pur_month= x.strftime("%m")
+			pur_year = x.strftime("%Y")
+			columns = ['medi_name','med_id','unit','quantity','pur_date', 'pur_month','pur_year','sup_id','cost']
 			writer = csv.DictWriter(csvfile,fieldnames = columns)
 			writer.writeheader()
-
-			writer.writerow({'medi_name':medi_name,'med_id':med_id,'unit':unit,'quantity':quantity,'pur_date':pur_date,'sup_id':sup_id,'cost':cost})
+			writer.writerow({'medi_name':medi_name,'med_id':med_id,'unit':unit,'quantity':quantity,'pur_date':pur_date,'pur_month':pur_month,'pur_year':pur_year,'sup_id':sup_id,'cost':cost})
 
 
 def search_medicine():
@@ -45,8 +46,7 @@ def search_medicine():
 
 def update_medicine():
     tempfile = NamedTemporaryFile(mode='w', delete=False)
-    columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date',\
-    'pur_date','comp_name', 'sup_id','to_pur']
+    columns = ['medi_name','med_id','sale','unit','quantity','min_quantity','comp_name', 'sup_id','to_pur']
     with open('medicine.csv', 'r+') as csvfile, tempfile:
         reader = csv.DictReader(csvfile)
         writer = csv.DictWriter(tempfile, fieldnames=columns)
@@ -71,8 +71,7 @@ def update_medicine():
 
 
             row = {'medi_name':row['medi_name'],'med_id':row['med_id'],'sale':row['sale'],'unit':row['unit'],'quantity':row['quantity'],\
-		    'min_quantity':row['min_quantity'],'exp_date':row['exp_date'],'pur_date':row['pur_date'],'comp_name':row['comp_name'], \
-		    'sup_id':row['sup_id'],'to_pur':row['to_pur']}
+		    'min_quantity':row['min_quantity'],'comp_name':row['comp_name'],'sup_id':row['sup_id'],'to_pur':row['to_pur']}
             writer.writerow(row)
 
     shutil.move(tempfile.name, 'medicine.csv')

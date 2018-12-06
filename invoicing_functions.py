@@ -1,28 +1,28 @@
 import csv
 from tempfile import NamedTemporaryFile
 import shutil
-
+import datetime
+d = datetime.datetime.now()
+date= x.strftime("%d")
+month= x.strftime("%m")
+year = x.strftime("%Y")
 def sup_invoice():
 	medi_name = input("Enter medicine name:")
 	med_id = input("Enter ID:")
-	unit = float(input("Enter cost price"))
-	quantity = int(input("Enter quantity"))
-	pur_date = (input("Enter purchase date"))
-	
-	sup_id = input("Enter supplier id")
+	unit = float(input("Enter cost price:"))
+	quantity = int(input("Enter quantity:"))
+	sup_id = input("Enter supplier id:")
 	cost = quantity * unit
 
 	with open('purchase.csv','a+') as csvfile:
-		columns = ['medi_name','med_id','unit','quantity','pur_date', 'sup_id','cost']
+		columns = ['medi_name','med_id','unit','quantity','pur_date', 'pur_month','pur_year', 'sup_id','cost']
 		writer = csv.DictWriter(csvfile,fieldnames = columns)
-		
-		writer.writerow({'medi_name':medi_name,'med_id':med_id,'unit':unit,'quantity':quantity,'pur_date':pur_date,'sup_id':sup_id,'cost':cost})
+		writer.writerow({'medi_name':medi_name,'med_id':med_id,'unit':unit,'quantity':quantity,'pur_date':date,'pur_month':month,'pur_year':year,'sup_id':sup_id,'cost':cost})
+	
 	tempfile = NamedTemporaryFile(mode='w', delete=False)
-
 	with open('medicine.csv','r') as csvfile,tempfile:
 		
-		columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date',\
-		'pur_date','comp_name', 'sup_id','to_pur']	
+		columns = ['medi_name','med_id','sale','unit','quantity','min_quantity','comp_name', 'sup_id','to_pur']	
 		reader = csv.DictReader(csvfile)
 		writer = csv.DictWriter(tempfile, fieldnames=columns)
 		writer.writeheader()
@@ -31,8 +31,7 @@ def sup_invoice():
 			if row['medi_name'] == medi_name:
 				row['quantity'] = int(row['quantity']) + quantity
 			row = {'medi_name':row['medi_name'],'med_id':row['med_id'],'sale':row['sale'],'unit':row['unit'],'quantity':row['quantity'],\
-			'min_quantity':row['min_quantity'],'exp_date':row['exp_date'],'pur_date':row['pur_date'],'comp_name':row['comp_name'], \
-			'sup_id':row['sup_id'],'to_pur':row['to_pur']}
+			'min_quantity':row['min_quantity'],'comp_name':row['comp_name'],'sup_id':row['sup_id'],'to_pur':row['to_pur']}
 			writer.writerow(row)
 	shutil.move(tempfile.name, 'medicine.csv') 
 
@@ -46,27 +45,25 @@ def cust_invoice():
 
 		medi_name = input("Enter medicine name:")
 		med_id = input("Enter ID:")
-		sale = float(input("Enter sale price"))
-		quantity = int(input("Enter quantity"))
-		sale_date = input("Enter sale date ")
-		customer_name = input("Enter name of customer")
-		customer_id = input("Enter customer id")
+		sale = float(input("Enter sale price:"))
+		quantity = int(input("Enter quantity:"))
+		customer_name = input("Enter name of customer:")
+		customer_id = input("Enter customer id:")
 		total = quantity * sale
 		medicinename.append(medi_name)
 		medicnecost.append(sale)
 		medicinequantity.append(quantity)
 		with open('sales.csv','a+') as csvfile:
-			columns = ['medi_name','med_id','sale','quantity','sale_date','customer_name', 'customer_id','total']
+			columns = ['medi_name','med_id','sale','quantity','sale_date','sale_month','sale_year','customer_name', 'customer_id','total']
 			writer = csv.DictWriter(csvfile,fieldnames = columns)
 			writer.writeheader()
-			writer.writerow({'medi_name':medi_name,'med_id':med_id,'sale':sale,'quantity':quantity,'sale_date':sale_date,'customer_name':customer_name,'customer_id':customer_id,'total':total})
+			writer.writerow({'medi_name':medi_name,'med_id':med_id,'sale':sale,'quantity':quantity,'sale_date':date,'sale_month':month,'sale_year':year,'customer_name':customer_name,'customer_id':customer_id,'total':total})
 		
 		tempfile = NamedTemporaryFile(mode='w', delete=False)
 
 		with open('medicine.csv','r+') as csvfile,tempfile:
 
-			columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date',\
-			'pur_date','comp_name', 'sup_id','to_pur']	
+			columns = ['medi_name','med_id','sale','unit','quantity','min_quantity','comp_name','sup_id','to_pur']	
 			reader = csv.DictReader(csvfile)
 			writer = csv.DictWriter(tempfile, fieldnames=columns)
 			writer.writeheader()
@@ -75,27 +72,26 @@ def cust_invoice():
 				if row['medi_name'] == medi_name:
 					row['quantity'] = int(row['quantity']) - quantity
 				row = {'medi_name':row['medi_name'],'med_id':row['med_id'],'sale':row['sale'],'unit':row['unit'],'quantity':row['quantity'],\
-				'min_quantity':row['min_quantity'],'exp_date':row['exp_date'],'pur_date':row['pur_date'],'comp_name':row['comp_name'],\
-				'sup_id':row['sup_id'],'to_pur':row['to_pur']}
+				'min_quantity':row['min_quantity'],'comp_name':row['comp_name'],'sup_id':row['sup_id'],'to_pur':row['to_pur']}
 				writer.writerow(row)
 		shutil.move(tempfile.name, 'medicine.csv') 
 		print("Enter 0 for purchasing another medicine\nEnter 1 to print bill")
 		i = int(input())
-	print("|=======Generating invoice========|\n")
-	print("Ashoka Pharmacy\n")
-	print("Date:", sale_date,"\n")
-	print("Time:", sale_date,"\n")
 	
-	print("|Name=======quantity==price==total|")
+	print("|======Generating invoice======|\n")
+	print("Ashoka Pharmacy\n")
+	print("Date:", x.strftime("%x"),"\n")
+	print("Time:", x.strftime("%X"),"\n")
+	print("|Name======quantity=price=total|")
 	for x in range(len(medicinename)):
 		print("|",medicinename[x],"|",medicinequantity[x],"|",medicnecost[x],"|", medicinequantity[x] * medicnecost[x])
-	print("|=================================|")
-	print("|Grand Total======================|")
+	print("|==============================|")
+	print("|Grand Total===================|")
 	grantotal =0
 	for x in range(len(medicinename)):
 		grantotal += medicinequantity[x] * medicnecost[x]
 	print("Rs.",grantotal)
-	print("|==============Thank You!=========|")
+	print("|==========Thank You!==========|")
 
 
 
