@@ -6,7 +6,7 @@ def add_medicine():
 		columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date',\
 		'pur_date','comp_name', 'sup_id','to_pur']
 		writer = csv.DictWriter(csvfile,fieldnames = columns)
-		writer.writeheader()
+		
 		medi_name = input("Enter medicine name:")
 		med_id = input("Enter ID:")
 		sale = float(input("Enter sale price:"))
