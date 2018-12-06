@@ -8,6 +8,7 @@
 * [Issues Faced](#issues-faced)
 * [Scope of improvement](#scope-of-improvement)
 * [Contributors](#contributors)
+* [License](#license)
 
 ## Aim 
 To create an inventory management software that deals with the day-to-day workings of a pharmacy store, thereby improving its efficiency and productivity. 
