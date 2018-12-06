@@ -36,8 +36,3 @@ Due to lack of time and lack of understanding of python we couldn't make GUI pro
 
 
 https://www.w3schools.com/python/python_datetime.asp
-h
-
-
-
-
