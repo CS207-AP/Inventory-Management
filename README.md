@@ -39,8 +39,8 @@ https://www.w3schools.com/python/python_datetime.asp
 
 ## Contributors
 
-# Shivam Sharda
+### Shivam Sharda
 
-# Vir Jhangiani
+### Vir Jhangiani
 
-# Harpreet Virk
+### Harpreet Virk
