@@ -59,4 +59,3 @@ def update_customer_info():
             writer.writerow(row)
 
     shutil.move(tempfile.name, 'cus_men.csv')
-new_customer()
