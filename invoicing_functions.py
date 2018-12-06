@@ -35,13 +35,13 @@ def sup_invoice():
 			'supp_id':row['supp_id'],'to_pur':row['to_pur']}
 			writer.writerow(row)
 	shutil.move(tempfile.name, 'medicine.csv') 
-<<<<<<< HEAD
+
 
 def cust_invoice():
 	i = 0
-	medicinename[]
-	medicnecost[]
-	medicinequantity[]
+	medicinename = []
+	medicnecost = []
+	medicinequantity = []
 	while i!=1:
 
 		medi_name = input("Enter medicine name:")
@@ -54,14 +54,14 @@ def cust_invoice():
 		total = quantity * unit
 		medicinename.append(medi_name)
 		medicnecost.append(sale)
-	    medicinequantity.append(quantity)
-
+		medicinequantity.append(quantity)
 		with open('sales.csv','a+') as csvfile:
 			columns = ['medi_name','med_id','unit','quantity','sale_date','customer_name', 'customer_id','sale']
 			writer = csv.DictWriter(csvfile,fieldnames = columns)
 			writer.writeheader()
 			writer.writerow({'medi_name':medi_name,'med_id':med_id,'sale':sale,'quantity':quantity,'sale_date':sale_date,'customer_name':customer_name,'customer_id':customer_id,'total':total})
-			tempfile = NamedTemporaryFile(mode='w', delete=False)
+		
+		tempfile = NamedTemporaryFile(mode='w', delete=False)
 
 		with open('medicine.csv','r') as csvfile,tempfile:
 
@@ -81,21 +81,21 @@ def cust_invoice():
 		shutil.move(tempfile.name, 'medicine.csv') 
 		print("Enter 1 for purchasing another medicine\nEnter 0 to print bill")
 		i = int(input())
-    print("|=========Generating invoice==========|\n")
-    print("Ashoka Pharmacy\n")
-    print("Date:", sale_date,"\n")
-    print("Time:", sale_date,"\n")
-    print("|=====================================|\n")
-    print("|Name=========quantity===price===total|")
-    for x in range(len(medicinename))
-    print("|",medicinename[x],"|",medicinequantity[x],"|",medicnecost[x],"|", medicinequantity[x] * medicnecost[x])
-    print("|=====================================|")
-    print("|Grand Total==========================|")
-    grantotal =0
-    for x in range(len(medicinename))
-    total += medicinequantity[x] * medicnecost[x]
-    print("Rs.",grantotal)
-    print("|==============Thank You!=============|")
+	print("|=========Generating invoice==========|\n")
+	print("Ashoka Pharmacy\n")
+	print("Date:", sale_date,"\n")
+	print("Time:", sale_date,"\n")
+	print("|=====================================|\n")
+	print("|Name=========quantity===price===total|")
+	for x in range(len(medicinename)):
+		print("|",medicinename[x],"|",medicinequantity[x],"|",medicnecost[x],"|", medicinequantity[x] * medicnecost[x])
+	print("|=====================================|")
+	print("|Grand Total==========================|")
+	grantotal =0
+	for x in range(len(medicinename)):
+		grantotal += medicinequantity[x] * medicnecost[x]
+	print("Rs.",grantotal)
+	print("|==============Thank You!=============|")
 
 
 
@@ -103,7 +103,3 @@ def cust_invoice():
 
 
 
-=======
-def cust_invoice():
-	print("TEST")
->>>>>>> a895fa4797e286877fa1d2e124ff5ccf58d7e619
