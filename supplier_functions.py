@@ -14,12 +14,12 @@ def create_supplier():
                 columns = ['sup_name', 'sup_id', 'sup_city', 'sup_contact', 'sup_email']
                 writer = csv.DictWriter(csvfile, fieldnames = columns)
                 writer.writeheader()
-                sup_name = input("Enter New Supplier's Name!\n")
+                sup_name = input("Enter New Supplier's Name : ")
                 sup_id = supplier_id_generator()
                 print('Unique Supplier ID Generated : ', sup_id)
-                sup_city = input("Enter New Supplier's City!\n")
-                sup_contact = int(input("Enter New Supplier's Contact Number!\n"))
-                sup_email = input("Enter New Supplier's Email Id!\n")
+                sup_city = input("Enter New Supplier's City : ")
+                sup_contact = int(input("Enter New Supplier's Contact Number : "))
+                sup_email = input("Enter New Supplier's Email Id : ")
                 writer.writerow({'sup_name':sup_name, 'sup_id':sup_id, 'sup_city':sup_city, 'sup_contact':sup_contact, 'sup_email':sup_email})
 def s_searchbyname():
         with open('supplier.csv','r') as csvfile:
@@ -59,15 +59,15 @@ def update_supplier_info():
                                 print('Enter 1 to update supplier name.\nEnter 2 to update supplier id.\nEnter 3 to update supplier city.\nEnter 4 to update supplier contact no.\nEnter 5 to update supplier email id.\n')
                                 choice=int(input('Enter your choice!\n'))
                                 if(choice==1):
-                                        r['sup_name']=input("Enter updated name!\n")
+                                        r['sup_name']=input("Enter updated name : ")
                                 elif(choice==2):
-                                        r['sup_id']=int(input("Enter updated id!\n"))
+                                        r['sup_id']=int(input("Enter updated id : "))
                                 elif(choice==3):
-                                        r['sup_city']=input("Enter updated city!\n")
+                                        r['sup_city']=input("Enter updated city : ")
                                 elif(choice==4):
-                                        r['sup_contact']=int(input("Enter updated contact!\n"))
+                                        r['sup_contact']=int(input("Enter updated contact : "))
                                 elif(choice==5):
-                                        r['sup_email']=int(input("Enter updated email id!\n"))
+                                        r['sup_email']=int(input("Enter updated email id : "))
                                 else:
                                         print("Invalid Input!\n")
                         r = {'sup_name':r['sup_name'], 'sup_id':r['sup_id'], 'sup_city':r['sup_city'], 'sup_contact':r['sup_contact'], 'sup_email':r['sup_email']}

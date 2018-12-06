@@ -16,16 +16,16 @@ def new_customer():
         names=['customer_name','customer_id','customer_phone','customer_medicine']
         writer=csv.DictWriter(csvfile,fieldnames=names)
         writer.writeheader()
-        customer_name=input('Enter the name of the customer: ')
+        customer_name=input('Enter the name of the customer : ')
         customer_id=customer_id_generator()
-        print('Unique customer ID generated: ',customer_id)
-        customer_phone=input('Enter the phone number of the customer: ')
-        customer_medicine=input('Enter the medicine that the customer needs: ')
+        print('Unique customer ID generated : ',customer_id)
+        customer_phone=input('Enter the phone number of the customer : ')
+        customer_medicine=input('Enter the medicine that the customer needs : ')
         writer.writerow({'customer_name':customer_name,'customer_id':customer_id,'customer_phone':customer_phone,"customer_medicine":customer_medicine})
 
 def search_customer():    
     with open('cus_men.csv','r') as csvfile:
-        no=input('Enter the id to search ')
+        no=input('Enter the id to search!\n')
         reader=csv.DictReader(csvfile)
         for row in reader:
             if row['customer_id']==no:
@@ -38,20 +38,20 @@ def update_customer_info():
         reader = csv.DictReader(csvfile)
         writer = csv.DictWriter(tempfile, fieldnames=names)
         writer.writeheader()
-        idno =input('Enter the id of the customer you want to modify: ')
+        idno =input('Enter the id of the customer you want to modify!\n')
         for row in reader:
             if row['customer_id'] == idno:
                 choice=int(input('1. To update the Name\n2. To update the phone number\n3. To update the medicine name\n'))
 
                 if(choice==1):
-                    row['customer_name']=input("Enter the new name: ")
+                    row['customer_name']=input("Enter the new name : ")
 
                 elif(choice==2):
-                    row['customer_phone']=input("Enter the new phone number: ")
+                    row['customer_phone']=input("Enter the new phone number : ")
 
                 elif(choice==3):
 
-                    row['customer_medicine']=input("Enter the medicine name")
+                    row['customer_medicine']=input("Enter the medicine name : ")
 
             row = {'customer_name':row['customer_name'],'customer_id':row['customer_id'],'customer_phone':row['customer_phone'],"customer_medicine":row['customer_medicine']}
             writer.writerow(row)

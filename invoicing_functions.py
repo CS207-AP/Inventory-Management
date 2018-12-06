@@ -3,15 +3,15 @@ from tempfile import NamedTemporaryFile
 import shutil
 import datetime
 d = datetime.datetime.now()
-date= x.strftime("%d")
-month= x.strftime("%m")
-year = x.strftime("%Y")
+date= d.strftime("%d")
+month= d.strftime("%m")
+year = d.strftime("%Y")
 def sup_invoice():
-	medi_name = input("Enter medicine name:")
-	med_id = input("Enter ID:")
-	unit = float(input("Enter cost price:"))
-	quantity = int(input("Enter quantity:"))
-	sup_id = input("Enter supplier id:")
+	medi_name = input("Enter medicine name : ")
+	med_id = input("Enter ID : ")
+	unit = float(input("Enter cost price : "))
+	quantity = int(input("Enter quantity : "))
+	sup_id = input("Enter supplier id : ")
 	cost = quantity * unit
 
 	with open('purchase.csv','a+') as csvfile:
@@ -43,12 +43,12 @@ def cust_invoice():
 	medicinequantity = []
 	while i!=1:
 
-		medi_name = input("Enter medicine name:")
-		med_id = input("Enter ID:")
-		sale = float(input("Enter sale price:"))
-		quantity = int(input("Enter quantity:"))
-		customer_name = input("Enter name of customer:")
-		customer_id = input("Enter customer id:")
+		medi_name = input("Enter medicine name : ")
+		med_id = input("Enter ID : ")
+		sale = float(input("Enter sale price : "))
+		quantity = int(input("Enter quantity : "))
+		customer_name = input("Enter name of customer : ")
+		customer_id = input("Enter customer id : ")
 		total = quantity * sale
 		medicinename.append(medi_name)
 		medicnecost.append(sale)
@@ -75,7 +75,7 @@ def cust_invoice():
 				'min_quantity':row['min_quantity'],'comp_name':row['comp_name'],'sup_id':row['sup_id'],'to_pur':row['to_pur']}
 				writer.writerow(row)
 		shutil.move(tempfile.name, 'medicine.csv') 
-		print("Enter 0 for purchasing another medicine\nEnter 1 to print bill")
+		print("Enter 0 for purchasing another medicine\nEnter 1 to print bill\n")
 		i = int(input())
 	
 	print("|======Generating invoice======|\n")
