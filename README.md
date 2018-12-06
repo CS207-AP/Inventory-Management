@@ -32,6 +32,7 @@ Due to lack of time and lack of understanding of python we couldn't make GUI pro
     * EasyGUI
     * PYQT
     
+    
 * One might say that we got a little too ambitious as we weren't aware about the challenges learning a language completely foreign to us would pose. After spending 2 days working with above mentioned modules to implement and make the GUI work, we finally had to give up as we just didn't know python well enough. 
 
 
