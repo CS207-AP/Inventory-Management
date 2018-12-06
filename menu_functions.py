@@ -6,7 +6,17 @@ import invoicing_functions
 def medicine_menu():
     m_menu_choice=0
     while(m_menu_choice!=5):
-        print("Enter 1 to add medicine. \nEnter 2 to search medicine. \nEnter 3 to update inventory . \nEnter 4 for Medicines to be purchased list. \nEnter 5 to to go back to Main Menu.\n")
+        print('---------------------------------------------')
+        print("|Enter 1 to add medicine                    |")
+        print('---------------------------------------------')
+        print('|Enter 2 to search medicine                 |')
+        print('---------------------------------------------')
+        print('|Enter 3 to update inventory                |')
+        print('---------------------------------------------') 
+        print('|Enter 4 for medicines to be purchased list |')
+        print('---------------------------------------------')
+        print('|Enter 5 to go back to Main Menu            |')
+        print('---------------------------------------------')
         m_menu_choice=int(input("Enter Your Choice!\n"))
         if(m_menu_choice==1):
             medicine_functions.add_medicine()
@@ -23,8 +33,16 @@ def medicine_menu():
 def customer_menu():
     c_menu_choice=0
     while(c_menu_choice!=4):
-        print("Enter 1 to search customer. \nEnter 2 to create new customer. \nEnter 3 to update customer information. \nEnter 4 to go back to Main Menu.\n")
-        c_menu_choice=int(input("Enter Your Choice!"))
+        print('----------------------------------')
+        print("|Enter 1 to search customer      |")
+        print('----------------------------------')
+        print('|Enter 2 to create new customer  |')
+        print('----------------------------------')
+        print('|Enter 3 to update customer info |')
+        print('----------------------------------') 
+        print('|Enter 4 to go back to main menu |')
+        print('----------------------------------')
+        c_menu_choice=int(input("Enter Your Choice "))
         if(c_menu_choice==1):
            customer_functions.search_customer()
         elif(c_menu_choice==2):
@@ -38,6 +56,15 @@ def customer_menu():
 def supplier_menu():
     s_menu_choice=0
     while(s_menu_choice!=4):
+        print('----------------------------------')
+        print("|Enter 1 to search supplier      |")
+        print('----------------------------------')
+        print('|Enter 2 to create new supplier  |')
+        print('----------------------------------')
+        print('|Enter 3 to update supplier info |')
+        print('----------------------------------') 
+        print('|Enter 4 to go back to main menu |')
+        print('----------------------------------')
         print("Enter 1 to search supplier. \nEnter 2 to create new supplier. \nEnter 3 to update supplier information. \nEnter 4 to go back to Main Menu.")
         s_menu_choice=int(input("Enter Your Choice!"))
         if(s_menu_choice==1):
@@ -53,7 +80,20 @@ def supplier_menu():
 def report_menu():
     r_menu_choice=0
     while(r_menu_choice!=6):
-        print("Enter 1 for Todays sales. \nEnter 2 for this months sales. \nEnter 3 for todays purchases. \nEnter 4 for this months purchases. \nEnter 5 for profit report. \nEnter 6 to go back to main menu.")
+        print('--------------------------------')
+        print("|Enter 1 for today's sale      |")
+        print('--------------------------------')
+        print('|Enter 2 for monthly sale      |')
+        print('--------------------------------')
+        print("|Enter 3 for today's purchases |")
+        print('--------------------------------') 
+        print("|Enter 4 for monthly purchases |")
+        print('--------------------------------')
+        print('|Enter 5 for profit report     |')
+        print('--------------------------------')
+        print('|Enter 6 to go to main menu    |')
+        print('--------------------------------')
+    
         r_menu_choice=int(input("Enter Your Choice!"))
         if(r_menu_choice==1):
             report_functions.day_sale()
@@ -72,7 +112,13 @@ def report_menu():
 def invoicing_menu():
     i_menu_choice=0
     while(i_menu_choice!=3):
-        print("Enter 1 for Supplier invoive. \nEnter 2 for customer Invoice. \nEnter 3 to return to main menu.")
+        print('---------------------------------')
+        print("|Enter 1 for supplier invoice   |")
+        print('---------------------------------')
+        print('|Enter 2 for customer invoice   |')
+        print('---------------------------------')
+        print("|Enter 3 to return to main menu |")
+        print('---------------------------------') 
         i_menu_choice=int(input("Enter Your Choice!"))
         if(i_menu_choice==1):
             invoicing_functions.sup_invoice()
