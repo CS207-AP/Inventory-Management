@@ -53,9 +53,9 @@ We read the python documentation, and began our work. We used '.csv' files to ma
 ### Shivam Sharda
 * Github
 * Customer Menu & Functions:
-- Add Customer
-- Update Customer
-- Search Customer
+   * Add Customer
+   * Update Customer
+   * Search Customer
 * Debugging 
 * Report
 * Designing 
@@ -63,29 +63,29 @@ We read the python documentation, and began our work. We used '.csv' files to ma
 ### Vir Jhangiani
 * Github
 * Medicine Menu & Functions:
-- Add Medicine
-- Search Medicine
-- Update Medicine
-- Medicine to be purchased
+   * Add Medicine
+   * Search Medicine
+   * Update Medicine
+   * Medicine to be purchased
 * Invoicing Menu & Functions:
-- Supplier Invoice
-- Customer Invoice
+   * Supplier Invoice
+   * Customer Invoice
 * Report Menu & Functions:
-- Day Sale
-- Month Sale
-- Day Purchase
-- Month Purchase
-- Profit Report
+   * Day Sale
+   * Month Sale
+   * Day Purchase
+   * Month Purchase
+   * Profit Report
 * Debugging
 * Compilation
 ### Harpreet Virk
 * Github
 * Supplier Menu & Functions: 
-- Add Supplier
-- Update Supplier
-- Search Supplier
+   * Add Supplier
+   * Update Supplier
+   * Search Supplier
 * Powerpoint Presentation
 * GUI attempt
-* Designing 
+* Report 
 * Compilation
 * Debugging 
