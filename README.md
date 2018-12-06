@@ -5,6 +5,9 @@
 * [Aim](#aim)
 * [Our Approach to the Solution](#our-approach-to-the-solution)
 * [Technology Utilised](#technology-utilised)
+* [Issues Faced](#issues-faced)
+* [Scope of improvement](#scope-of-improvement)
+* [Contributors](#contributors)
 
 ## Aim 
 To create an inventory management software that deals with the day-to-day workings of a pharmacy store, thereby improving its efficiency and productivity. 
