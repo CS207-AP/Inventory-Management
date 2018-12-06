@@ -42,9 +42,15 @@ https://www.w3schools.com/python/python_datetime.asp
 ### Shivam Sharda
 * Github
 * Customer Functions
+* Debugging 
+* Report
 ### Vir Jhangiani
 * Github
 * Medicine Menu
+* Debugging
+* Invoicing Functions
 ### Harpreet Virk
 * Github
 * Supplier Menu
+* Debugging 
+* Presentation
