@@ -13,6 +13,7 @@ def create_supplier():
         with open('supplier.csv', 'a+') as csvfile:
                 columns = ['sup_name', 'sup_id', 'sup_city', 'sup_contact', 'sup_email']
                 writer = csv.DictWriter(csvfile, fieldnames = columns)
+                writer.writeheader()
                 sup_name = input("Enter New Supplier's Name!\n")
                 sup_id = supplier_id_generator()
                 print('Unique Supplier ID Generated : ', sup_id)
@@ -29,7 +30,7 @@ def s_searchbyname():
                                 print('Name : ', r['sup_name'], '\n', 'Id : ', r['sup_id'],'\n', 'City : ', r['sup_city'], '\n', 'Contact No :', r['sup_contact'], '\n', 'Email id : ', r['sup_email'])
 def s_searchbyid():
         with open('supplier.csv','r') as csvfile:
-                id=int(input('Enter Supplier Name!\n'))
+                id=int(input('Enter Supplier ID!\n'))
                 reader=csv.DictReader(csvfile)
                 for r in reader:
                         if r['sup_id'] == id:

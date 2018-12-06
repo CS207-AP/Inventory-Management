@@ -15,6 +15,7 @@ def new_customer():
     with open('cus_men.csv','a+') as csvfile:
         names=['customer_name','customer_id','customer_phone','customer_medicine']
         writer=csv.DictWriter(csvfile,fieldnames=names)
+        writer.writeheader()
         customer_name=input('Enter the name of the customer: ')
         customer_id=customer_id_generator()
         print('Unique customer ID generated: ',customer_id)

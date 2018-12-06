@@ -6,18 +6,19 @@ def add_medicine():
 		columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date',\
 		'pur_date','comp_name', 'sup_id','to_pur']
 		writer = csv.DictWriter(csvfile,fieldnames = columns)
-		
+		writer.writeheader()
 		medi_name = input("Enter medicine name:")
 		med_id = input("Enter ID:")
 		sale = float(input("Enter sale price:"))
 		unit = float(input("Enter cost price"))
 		quantity = int(input("Enter quantity"))
-		min_quantity = int(input("Enter min quantity to "))
+		min_quantity = int(input("Enter min quantity to maintain"))
 		exp_date = input("Enter exp date")
 		pur_date= input("Enter purchase date")
 		comp_name = input("Enter company name")
 		sup_id = input("Enter supplier ID")
-		
+		supp = ""
+		cost = unit * quantity
 		to_pur = min_quantity - quantity
 		if quantity >min_quantity:
 			to_pur = 0
@@ -25,19 +26,14 @@ def add_medicine():
 		'min_quantity':min_quantity,'exp_date':exp_date,'pur_date':pur_date,'comp_name':comp_name, \
 		'sup_id':sup_id,'to_pur':to_pur})
 
-		with open('supplier.csv','r') as csvfile:
-			name=input('Enter Supplier Name!\n')
-			reader=csv.DictReader(csvfile)
-			for r in reader:
-				if r['sup_id'] == sup_id:
-					sup_name = r['sup_name']
-
+		
 		with open('purchase.csv','a+') as csvfile:
-			columns = ['medi_name','med_id','unit','quantity','pur_date','sup_name', 'sup_id','cost']
+			columns = ['medi_name','med_id','unit','quantity','pur_date', 'sup_id','cost']
 			writer = csv.DictWriter(csvfile,fieldnames = columns)
-			
-			writer.writerow({'medi_name':medi_name,'med_id':med_id,'unit':unit,'quantity':quantity,'pur_date':pur_date,'sup_name':sup_name,'sup_id':sup_id,'cost':cost})
-			
+			writer.writeheader()
+
+			writer.writerow({'medi_name':medi_name,'med_id':med_id,'unit':unit,'quantity':quantity,'pur_date':pur_date,'sup_id':sup_id,'cost':cost})
+
 
 def search_medicine():
     with open('medicine.csv','r') as csvfile:
@@ -51,7 +47,7 @@ def update_medicine():
     tempfile = NamedTemporaryFile(mode='w', delete=False)
     columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date',\
     'pur_date','comp_name', 'sup_id','to_pur']
-    with open('medicine.csv', 'r') as csvfile, tempfile:
+    with open('medicine.csv', 'r+') as csvfile, tempfile:
         reader = csv.DictReader(csvfile)
         writer = csv.DictWriter(tempfile, fieldnames=columns)
         writer.writeheader()
