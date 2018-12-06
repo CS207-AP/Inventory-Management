@@ -20,8 +20,8 @@ And after writing about 600 lines of code in C, we decided to shift to python as
 Due to lack of time and lack of understanding of python we couldn't make GUI properly, consequently we had to drop the idea of making a GUI.
 
 ## Technology Utilised 
-* Python
-* CSV files
+* Python - https://docs.python.org/3/
+* CSV files - https://docs.python.org/3/library/csv.html
 ## Problems faced
 
 * The process of writing the entire program in C became really complex and confusing.
