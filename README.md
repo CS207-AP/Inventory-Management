@@ -7,7 +7,7 @@
 * [Technology Utilised](#technology-utilised)
 
 ## Aim 
-The aim of this project was to make a completely working free program to deal with the invetory of a pharmacy and mechanize its various forms.
+The aim of this project was to make a completely working program to deal with the invetory of a pharmacy and mechanize its various forms.
 ## Our Solution
 Once the aim was established clearly, we needed to make a program through which a pharmacy can deal with the following-
 * Customers
@@ -44,13 +44,19 @@ https://www.w3schools.com/python/python_datetime.asp
 * Customer Functions
 * Debugging 
 * Report
+* Designing 
+* GUI attempt
 ### Vir Jhangiani
 * Github
 * Medicine Menu
 * Debugging
 * Invoicing Functions
+* Report Functions
+* Compilation
 ### Harpreet Virk
 * Github
 * Supplier Menu
 * Debugging 
 * Presentation
+* GUI attempt
+* Compilation
