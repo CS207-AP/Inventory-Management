@@ -1,1 +1,4 @@
-# Inventory-Management
+# Pharmacy Management Software
+
+
+
