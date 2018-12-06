@@ -26,18 +26,18 @@ def add_medicine():
 		'sup_id':sup_id,'to_pur':to_pur})
 
 		with open('supplier.csv','r') as csvfile:
-                name=input('Enter Supplier Name!\n')
-                reader=csv.DictReader(csvfile)
-                for r in reader:
-                        if r['sup_id'] == sup_id:
-                        	sup_name = r['sup_name']
+			name=input('Enter Supplier Name!\n')
+			reader=csv.DictReader(csvfile)
+			for r in reader:
+				if r['sup_id'] == sup_id:
+					sup_name = r['sup_name']
 
 		with open('purchase.csv','a+') as csvfile:
-		columns = ['medi_name','med_id','unit','quantity','pur_date','sup_name', 'sup_id','cost']
-		writer = csv.DictWriter(csvfile,fieldnames = columns)
-		
-		writer.writerow({'medi_name':medi_name,'med_id':med_id,'unit':unit,'quantity':quantity,'pur_date':pur_date,'sup_name':sup_name,'sup_id':sup_id,'cost':cost})
-	
+			columns = ['medi_name','med_id','unit','quantity','pur_date','sup_name', 'sup_id','cost']
+			writer = csv.DictWriter(csvfile,fieldnames = columns)
+			
+			writer.writerow({'medi_name':medi_name,'med_id':med_id,'unit':unit,'quantity':quantity,'pur_date':pur_date,'sup_name':sup_name,'sup_id':sup_id,'cost':cost})
+			
 
 def search_medicine():
     with open('medicine.csv','r') as csvfile:

@@ -49,18 +49,11 @@ def update_customer_info():
                     row['customer_phone']=input("Enter the new phone number: ")
 
                 elif(choice==3):
-<<<<<<< HEAD
+
                     row['customer_medicine']=input("Enter the medicine name")
-
-
 
             row = {'customer_name':row['customer_name'],'customer_id':row['customer_id'],'customer_phone':row['customer_phone'],"customer_medicine":row['customer_medicine']}
             writer.writerow(row)
 
     shutil.move(tempfile.name, 'cus_men.csv')
-=======
-                    row['Customer_Medicine']=input("Enter the medicine name")
-            row = {'Customer_Name':row['Customer_Name'],'Customer_ID':row['Customer_ID'],'Customer_Phone':row['Customer_Phone'],"Customer_Medicine":row['Customer_Medicine']}
-            writer.writerow(row)
-    shutil.move(tempfile.name, 'cus_men.csv')
->>>>>>> a895fa4797e286877fa1d2e124ff5ccf58d7e619
+
