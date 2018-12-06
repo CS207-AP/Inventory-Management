@@ -4,9 +4,9 @@ import shutil
 def add_medicine():
 	with open('medicine.csv','a+') as csvfile:
 		columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date',\
-		'pur_date','comp_name', 'sup_id','cost','total','to_pur']
+		'pur_date','comp_name', 'sup_id','to_pur']
 		writer = csv.DictWriter(csvfile,fieldnames = columns)
-		
+		writer.writeheader()
 		medi_name = input("Enter medicine name:")
 		med_id = input("Enter ID:")
 		sale = float(input("Enter sale price:"))
@@ -17,14 +17,13 @@ def add_medicine():
 		pur_date= input("Enter purchase date")
 		comp_name = input("Enter company name")
 		sup_id = input("Enter supplier ID")
-		cost = quantity * unit
-		total = quantity *sale
+		
 		to_pur = min_quantity - quantity
 		if quantity >min_quantity:
 			to_pur = 0
 		writer.writerow({'medi_name':medi_name,'med_id':med_id,'sale':sale,'unit':unit,'quantity':quantity,\
 		'min_quantity':min_quantity,'exp_date':exp_date,'pur_date':pur_date,'comp_name':comp_name, \
-		'sup_id':sup_id,'cost':cost,'total':total,'to_pur':to_pur})
+		'sup_id':sup_id,'to_pur':to_pur})
 
 def search_medicine():
     with open('medicine.csv','r') as csvfile:
@@ -37,7 +36,7 @@ def search_medicine():
 def update_medicine():
     tempfile = NamedTemporaryFile(mode='w', delete=False)
     columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'exp_date',\
-    'pur_date','comp_name', 'sup_id','cost','total','to_pur']
+    'pur_date','comp_name', 'sup_id','to_pur']
     with open('medicine.csv', 'r') as csvfile, tempfile:
         reader = csv.DictReader(csvfile)
         writer = csv.DictWriter(tempfile, fieldnames=columns)
@@ -63,7 +62,7 @@ def update_medicine():
 
             row = {'medi_name':row['medi_name'],'med_id':row['med_id'],'sale':row['sale'],'unit':row['unit'],'quantity':row['quantity'],\
 		    'min_quantity':row['min_quantity'],'exp_date':row['exp_date'],'pur_date':row['pur_date'],'comp_name':row['comp_name'], \
-		    'sup_id':row['sup_id'],'cost':row['cost'],'total':row['total'],'to_pur':row['to_pur']}
+		    'sup_id':row['sup_id'],'to_pur':row['to_pur']}
             writer.writerow(row)
 
     shutil.move(tempfile.name, 'medicine.csv')
