@@ -12,7 +12,6 @@ def customer_id_generator():
     return i
 
 def new_customer():
-    
     with open('cus_men.csv','a+') as csvfile:
         names=['Customer_Name','Customer_ID','Customer_Phone','Customer_Medicine']
         writer=csv.DictWriter(csvfile,fieldnames=names)
@@ -23,8 +22,7 @@ def new_customer():
         Customer_Medicine=input('Enter the medicine that the customer needs: ')
         writer.writerow({'Customer_Name':Customer_Name,'Customer_ID':Customer_ID,'Customer_Phone':Customer_Phone,"Customer_Medicine":Customer_Medicine})
 
-def search_customer():
-    
+def search_customer():    
     with open('cus_men.csv','r') as csvfile:
         no=input('Enter the id to search ')
         reader=csv.DictReader(csvfile)
@@ -52,11 +50,6 @@ def update_customer_info():
 
                 elif(choice==3):
                     row['Customer_Medicine']=input("Enter the medicine name")
-
-
-
             row = {'Customer_Name':row['Customer_Name'],'Customer_ID':row['Customer_ID'],'Customer_Phone':row['Customer_Phone'],"Customer_Medicine":row['Customer_Medicine']}
             writer.writerow(row)
-
     shutil.move(tempfile.name, 'cus_men.csv')
-new_customer()

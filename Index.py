@@ -14,6 +14,8 @@ while menu_choice != 6:
         menu_functions.report_menu()
     elif menu_choice==5:
         menu_functions.invoicing_menu()
+    elif menu_choice==6:
+        break
     else:
         print("Invalid Input! Try Again! \n")    
 sys.exit()
