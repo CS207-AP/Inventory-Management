@@ -75,7 +75,6 @@ We read the python documentation, and began our work. We used '.csv' files to ma
    * Supplier Invoice
    * Customer Invoice
 * Report Menu & Functions:
-   * Minimum Quantity Update
 * Debugging
 * Compilation
 ### Harpreet Virk
