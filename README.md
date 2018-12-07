@@ -75,10 +75,6 @@ We read the python documentation, and began our work. We used '.csv' files to ma
    * Supplier Invoice
    * Customer Invoice
 * Report Menu & Functions:
-   * Day Sale
-   * Month Sale
-   * Day Purchase
-   * Month Purchase
    * Profit Report
 * Debugging
 * Compilation
@@ -93,7 +89,6 @@ We read the python documentation, and began our work. We used '.csv' files to ma
    * Month Sale
    * Day Purchase
    * Month Purchase
-   * Profit Report
 * Designing
 * GUI attempt
 * Report 
