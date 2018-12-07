@@ -42,7 +42,7 @@ def customer_menu():
         print('----------------------------------') 
         print('|Enter 4 to go back to main menu |')
         print('----------------------------------')
-        c_menu_choice=int(input("Enter Your Choice "))
+        c_menu_choice=int(input("Enter Your Choice!\n"))
         if(c_menu_choice==1):
            customer_functions.search_customer()
         elif(c_menu_choice==2):
@@ -66,7 +66,7 @@ def supplier_menu():
         print('|Enter 4 to go back to main menu |')
         print('----------------------------------')
         print("Enter 1 to search supplier. \nEnter 2 to create new supplier. \nEnter 3 to update supplier information. \nEnter 4 to go back to Main Menu.")
-        s_menu_choice=int(input("Enter Your Choice!"))
+        s_menu_choice=int(input("Enter Your Choice!\n"))
         if(s_menu_choice==1):
             supplier_functions.search_supplier()
         elif(s_menu_choice==2):
@@ -94,7 +94,7 @@ def report_menu():
         print('|Enter 6 to go to main menu    |')
         print('--------------------------------')
     
-        r_menu_choice=int(input("Enter Your Choice!"))
+        r_menu_choice=int(input("Enter Your Choice!\n"))
         if(r_menu_choice==1):
             report_functions.day_sale()
         elif(r_menu_choice==2):
@@ -119,7 +119,7 @@ def invoicing_menu():
         print('---------------------------------')
         print("|Enter 3 to return to main menu |")
         print('---------------------------------') 
-        i_menu_choice=int(input("Enter Your Choice!"))
+        i_menu_choice=int(input("Enter Your Choice!\n"))
         if(i_menu_choice==1):
             invoicing_functions.sup_invoice()
         elif(i_menu_choice==2):

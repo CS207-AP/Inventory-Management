@@ -8,16 +8,14 @@ def add_medicine():
 		columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'comp_name', 'sup_id','to_pur']
 		writer = csv.DictWriter(csvfile,fieldnames = columns)
 		writer.writeheader()
-		medi_name = input("Enter medicine name:")
-		med_id = input("Enter ID:")
-		sale = float(input("Enter sale price:"))
-		unit = float(input("Enter cost price"))
-		quantity = int(input("Enter quantity"))
-		min_quantity = int(input("Enter min quantity to maintain"))
-		
-		
-		comp_name = input("Enter company name")
-		sup_id = input("Enter supplier ID")
+		medi_name = input("Enter medicine name : ")
+		med_id = input("Enter ID : ")
+		sale = float(input("Enter sale price : "))
+		unit = float(input("Enter cost price : "))
+		quantity = int(input("Enter quantity : "))
+		min_quantity = int(input("Enter min quantity to maintain : "))
+		comp_name = input("Enter company name : ")
+		sup_id = input("Enter supplier ID : ")
 		cost = unit * quantity
 		to_pur = min_quantity - quantity
 		if quantity >min_quantity:
@@ -27,9 +25,9 @@ def add_medicine():
 
 		
 		with open('purchase.csv','a+') as csvfile:
-			pur_date= x.strftime("%d")
-			pur_month= x.strftime("%m")
-			pur_year = x.strftime("%Y")
+			pur_date= d.strftime("%d")
+			pur_month= d.strftime("%m")
+			pur_year = d.strftime("%Y")
 			columns = ['medi_name','med_id','unit','quantity','pur_date', 'pur_month','pur_year','sup_id','cost']
 			writer = csv.DictWriter(csvfile,fieldnames = columns)
 			writer.writeheader()
@@ -38,11 +36,11 @@ def add_medicine():
 
 def search_medicine():
     with open('medicine.csv','r') as csvfile:
-        name=input('Enter the medicine to search:')
+        name=input('Enter the medicine to search : ')
         reader=csv.DictReader(csvfile)
         for row in reader:
             if row['medi_name'] == name:
-                print('Name:', row['medi_name'],'\n','Quantity:',row['quantity'],'\n','Price:',row['sale'])	
+                print('Name : ', row['medi_name'],'\n','Quantity : ',row['quantity'],'\n','Price : ',row['sale'])	
 
 def update_medicine():
     tempfile = NamedTemporaryFile(mode='w', delete=False)
@@ -51,25 +49,22 @@ def update_medicine():
         reader = csv.DictReader(csvfile)
         writer = csv.DictWriter(tempfile, fieldnames=columns)
         writer.writeheader()
-        med_name =input('Enter the name of the medicine you want to modify')
+        med_name =input('Enter the name of the medicine you want to modify!\n')
         for row in reader:
             if row['medi_name'] == med_name:
                 choice=int(input('1.To update the Name\n2.To update Cost price\n3.To update sale price.\n4.To update supplier ID'))
 
                 if(choice==1):
-                    row['medi_name']=input("Enter the new name: ")
+                    row['medi_name']=input("Enter the new name : ")
 
                 elif(choice==2):
-                    row['cost']=input("Enter the new cost price: ")
+                    row['cost']=input("Enter the new cost price : ")
 
                 elif(choice==3):
-                    row['sale']=input("Enter the new sale price")
+                    row['sale']=input("Enter the new sale price : ")
 
                 elif(choice==4):
-                    row['sup_id']=input("Enter the new supplier ID")    
-
-
-
+                    row['sup_id']=input("Enter the new supplier ID : ")    
             row = {'medi_name':row['medi_name'],'med_id':row['med_id'],'sale':row['sale'],'unit':row['unit'],'quantity':row['quantity'],\
 		    'min_quantity':row['min_quantity'],'comp_name':row['comp_name'],'sup_id':row['sup_id'],'to_pur':row['to_pur']}
             writer.writerow(row)
@@ -81,5 +76,5 @@ def medicine_to_be_purchased():
 		reader=csv.DictReader(csvfile)
 		for row in reader:
 			if int(row['to_pur']) >0:
-				print('Name:', row['medi_name'],'\n','Quantity:',row['quantity'],'\n','Minimum Quantity:',row['min_quantity']\
-				,'\n','To be purchased:',row['to_pur'],'\n','Supplier ID:',row['sup_id'])           
+				print('Name : ', row['medi_name'],'\n','Quantity : ',row['quantity'],'\n','Minimum Quantity : ',row['min_quantity']\
+				,'\n','To be purchased : ',row['to_pur'],'\n','Supplier ID : ',row['sup_id'])           
