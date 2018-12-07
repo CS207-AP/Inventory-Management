@@ -57,11 +57,7 @@ def cust_invoice():
 		medicinename.append(medi_name)
 		medicnecost.append(sale)
 		medicinequantity.append(quantity)
-		with open('sales.csv','a+') as csvfile:
-			columns = ['medi_name','med_id','sale','quantity','sale_date','sale_month','sale_year','customer_name', 'customer_id','total']
-			writer = csv.DictWriter(csvfile,fieldnames = columns)
-			writer.writeheader()
-			writer.writerow({'medi_name':medi_name,'med_id':med_id,'sale':sale,'quantity':quantity,'sale_date':date,'sale_month':month,'sale_year':year,'customer_name':customer_name,'customer_id':customer_id,'total':total})
+		
 		
 		tempfile = NamedTemporaryFile(mode='w', delete=False)
 
@@ -80,20 +76,27 @@ def cust_invoice():
 						print("Only",int(row['quantity']),"remaining in stock")	
 						break
 					if int(row['quantity'])<int(row['min_quantity']):
-					row['to_pur'] = int(row['min_quantity']) -int(row['quantity'])
-				else:
-					row['to_pur'] = 0
+						row['to_pur'] = int(row['min_quantity']) -int(row['quantity'])
+					else:
+						row['to_pur'] = 0
 				row = {'medi_name':row['medi_name'],'med_id':row['med_id'],'sale':row['sale'],'unit':row['unit'],'quantity':row['quantity'],\
 				'min_quantity':row['min_quantity'],'comp_name':row['comp_name'],'sup_id':row['sup_id'],'to_pur':row['to_pur']}
 				writer.writerow(row)
 		shutil.move(tempfile.name, 'medicine.csv') 
+
+		with open('sales.csv','a+') as csvfile:
+			columns = ['medi_name','med_id','sale','quantity','sale_date','sale_month','sale_year','customer_name', 'customer_id','total']
+			writer = csv.DictWriter(csvfile,fieldnames = columns)
+			
+			writer.writerow({'medi_name':medi_name,'med_id':med_id,'sale':sale,'quantity':quantity,'sale_date':date,'sale_month':month,'sale_year':year,'customer_name':customer_name,'customer_id':customer_id,'total':total})
+		
 		print("Enter 0 for purchasing another medicine\nEnter 1 to print bill\n")
 		i = int(input())
 	
 	print("|======Generating invoice======|\n")
 	print("Ashoka Pharmacy\n")
-	print("Date:", x.strftime("%x"),"\n")
-	print("Time:", x.strftime("%X"),"\n")
+	print("Date:", d.strftime("%x"),"\n")
+	print("Time:", d.strftime("%X"),"\n")
 	print("|Name======quantity=price=total|")
 	for x in range(len(medicinename)):
 		print("|",medicinename[x],"|",medicinequantity[x],"|",medicnecost[x],"|", medicinequantity[x] * medicnecost[x])
