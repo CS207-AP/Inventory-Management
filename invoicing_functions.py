@@ -30,6 +30,10 @@ def sup_invoice():
 		for row in reader:
 			if row['medi_name'] == medi_name:
 				row['quantity'] = int(row['quantity']) + quantity
+				if int(row['quantity'])<int(row['min_quantity']):
+					row['to_pur'] = int(row['min_quantity']) -int(row['quantity'])
+				else:
+					row['to_pur'] = 0	
 			row = {'medi_name':row['medi_name'],'med_id':row['med_id'],'sale':row['sale'],'unit':row['unit'],'quantity':row['quantity'],\
 			'min_quantity':row['min_quantity'],'comp_name':row['comp_name'],'sup_id':row['sup_id'],'to_pur':row['to_pur']}
 			writer.writerow(row)
@@ -70,7 +74,15 @@ def cust_invoice():
 
 			for row in reader:
 				if row['medi_name'] == medi_name:
-					row['quantity'] = int(row['quantity']) - quantity
+					if quantity <=int(row['quantity']):
+						row['quantity'] = int(row['quantity']) - quantity
+					else:
+						print("Only",int(row['quantity']),"remaining in stock")	
+						break
+					if int(row['quantity'])<int(row['min_quantity']):
+					row['to_pur'] = int(row['min_quantity']) -int(row['quantity'])
+				else:
+					row['to_pur'] = 0
 				row = {'medi_name':row['medi_name'],'med_id':row['med_id'],'sale':row['sale'],'unit':row['unit'],'quantity':row['quantity'],\
 				'min_quantity':row['min_quantity'],'comp_name':row['comp_name'],'sup_id':row['sup_id'],'to_pur':row['to_pur']}
 				writer.writerow(row)
