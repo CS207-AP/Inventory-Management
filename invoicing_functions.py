@@ -80,7 +80,7 @@ def cust_invoice():
 						print("Only",int(row['quantity']),"remaining in stock")	
 						break
 					if int(row['quantity'])<int(row['min_quantity']):
-					row['to_pur'] = int(row['min_quantity']) -int(row['quantity'])
+						row['to_pur'] = int(row['min_quantity']) -int(row['quantity'])
 				else:
 					row['to_pur'] = 0
 				row = {'medi_name':row['medi_name'],'med_id':row['med_id'],'sale':row['sale'],'unit':row['unit'],'quantity':row['quantity'],\
@@ -92,8 +92,8 @@ def cust_invoice():
 	
 	print("|======Generating invoice======|\n")
 	print("Ashoka Pharmacy\n")
-	print("Date:", x.strftime("%x"),"\n")
-	print("Time:", x.strftime("%X"),"\n")
+	print("Date:", d.strftime("%x"),"\n")
+	print("Time:", d.strftime("%X"),"\n")
 	print("|Name======quantity=price=total|")
 	for x in range(len(medicinename)):
 		print("|",medicinename[x],"|",medicinequantity[x],"|",medicnecost[x],"|", medicinequantity[x] * medicnecost[x])

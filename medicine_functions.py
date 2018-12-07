@@ -77,9 +77,7 @@ def update_medicine():
             row = {'medi_name':row['medi_name'],'med_id':row['med_id'],'sale':row['sale'],'unit':row['unit'],'quantity':row['quantity'],\
 		    'min_quantity':row['min_quantity'],'comp_name':row['comp_name'],'sup_id':row['sup_id'],'to_pur':row['to_pur']}
             writer.writerow(row)
-
     shutil.move(tempfile.name, 'medicine.csv')
-
 def medicine_to_be_purchased():
 	with open('medicine.csv','r') as csvfile:
 		reader=csv.DictReader(csvfile)
