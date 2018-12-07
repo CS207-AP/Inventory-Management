@@ -96,6 +96,23 @@ def month_purchase():
         print('Total Purchase cost for the month : ', count)
         print('-----------------------------------------------')
 def profit_report():
-    print('test')
+        print('Enter Month : ')
+        month = int(input())
+        print('Enter Year : ')
+        year = int(input())
+        count1=0
+        count2=0
+        with open('sales.csv','r+') as csvfile :
+                reader = csv.DictReader(csvfile)
+                for r in reader:
+                        if r['sale_month']==month and r['sale_year']==year :
+                                count1=count1+r['total']
+        with open('purchase.csv', 'r+') as csvfile :
+                reader = csv.DictReader(csvfile)
+                for r in reader:
+                        if r['sale_month']==month and r['sale_year']==year :
+                                count2=count2+r['cost']
+        profit = count1-count2
+        print("Profit for ", month, " - ", year, " is ", profit, "!\n")
 def min_quant_update():
     print('test')
