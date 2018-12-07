@@ -49,11 +49,20 @@ def update_medicine():
         reader = csv.DictReader(csvfile)
         writer = csv.DictWriter(tempfile, fieldnames=columns)
         writer.writeheader()
-        med_name =input('Enter the name of the medicine you want to modify!\n')
+        med_name =input('Enter the name of the medicine you want to modify : ')
         for row in reader:
             if row['medi_name'] == med_name:
-                choice=int(input('1.To update the Name\n2.To update Cost price\n3.To update sale price.\n4.To update supplier ID'))
-
+				choice=0
+				print('---------------------------------------------')
+				print('|1.To update Name                           |')
+				print('---------------------------------------------')
+				print('|2.To update Cost price                     |')
+				print('---------------------------------------------')
+				print('|3.To update Sale price                     |')
+				print('---------------------------------------------')
+				print('|4.To update supplier ID                    |')
+				print('---------------------------------------------')
+                choice=int(input())
                 if(choice==1):
                     row['medi_name']=input("Enter the new name : ")
 
@@ -68,9 +77,7 @@ def update_medicine():
             row = {'medi_name':row['medi_name'],'med_id':row['med_id'],'sale':row['sale'],'unit':row['unit'],'quantity':row['quantity'],\
 		    'min_quantity':row['min_quantity'],'comp_name':row['comp_name'],'sup_id':row['sup_id'],'to_pur':row['to_pur']}
             writer.writerow(row)
-
     shutil.move(tempfile.name, 'medicine.csv')
-
 def medicine_to_be_purchased():
 	count = 0
 	with open('medicine.csv','r') as csvfile:
