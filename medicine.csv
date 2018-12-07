@@ -1,2 +1,2 @@
 medi_name,med_id,sale,unit,quantity,min_quantity,comp_name,sup_id,to_pur
-Allegra,1,110,50.0,18,5,Sun,1,0
+Allegra,1,110,50.0,2,5,Sun,1,3

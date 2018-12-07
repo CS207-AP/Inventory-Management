@@ -75,11 +75,7 @@ We read the python documentation, and began our work. We used '.csv' files to ma
    * Supplier Invoice
    * Customer Invoice
 * Report Menu & Functions:
-   * Day Sale
-   * Month Sale
-   * Day Purchase
-   * Month Purchase
-   * Profit Report
+   * Minimum Quantity Update
 * Debugging
 * Compilation
 ### Harpreet Virk
@@ -88,7 +84,13 @@ We read the python documentation, and began our work. We used '.csv' files to ma
    * Add Supplier
    * Update Supplier
    * Search Supplier
-* Powerpoint Presentation
+* Report Menu & Functions:
+   * Day Sale
+   * Month Sale
+   * Day Purchase
+   * Month Purchase
+   * Profit Report
+* Designing
 * GUI attempt
 * Report 
 * Compilation
