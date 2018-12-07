@@ -62,7 +62,17 @@ def update_supplier_info():
                 suppp_name=input('Enter the name of the supplier you want to modify!\n')
                 for r in reader:
                         if r['sup_name'] == suppp_name:
-                                print('Enter 1 to update supplier name.\nEnter 2 to update supplier id.\nEnter 3 to update supplier city.\nEnter 4 to update supplier contact no.\nEnter 5 to update supplier email id.\n')
+                                print('---------------------------------------------')
+                                print('|Enter 1 to update supplier name.           |')
+                                print('---------------------------------------------')
+                                print('|Enter 2 to update supplier id.             |')
+                                print('---------------------------------------------')
+                                print('|Enter 3 to update supplier city.           |')
+                                print('---------------------------------------------')
+                                print('|Enter 4 to update supplier contact no.     |')
+                                print('---------------------------------------------')
+                                print('|Enter 5 to update supplier email id.       |')
+                                print('---------------------------------------------')
                                 choice=int(input('Enter your choice!\n'))
                                 if(choice==1):
                                         r['sup_name']=input("Enter updated name : ")
