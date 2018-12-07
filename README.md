@@ -1,5 +1,8 @@
 # Pharmacy Management Software
 
+## GitHub repository
+* https://github.com/CS207-AP/Inventory-Management
+
 ## Table of Contents
 
 * [Aim](#aim)
