@@ -1,13 +1,15 @@
 import csv
 from tempfile import NamedTemporaryFile
 import shutil
+import datetime
+d = datetime.datetime.now()
+date= d.strftime("%d")
+month= d.strftime("%m")
+year = d.strftime("%Y")
+
 def day_sale():
-    print("TEST")
 def month_sale():
-    print("TEST")
 def day_purchase():
-    print("TEST")
 def month_purchase():
-    print("TEST")
 def profit_report():
-    print("TEST")
+def min_quant_update();	
