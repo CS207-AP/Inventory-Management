@@ -38,7 +38,13 @@ def s_searchbyid():
 def search_supplier():
         ss_choice=0
         while(ss_choice!=3):
-                print("Enter 1 to search supplier by name!\nEnter 2 to search supplier by id!\nEnter 3 to exit supplier search!\n")
+                print('---------------------------------------------')
+                print("|Enter 1 to search supplier by name!        |")
+                print('---------------------------------------------')
+                print("|Enter 2 to search supplier by id!          |")
+                print('---------------------------------------------')
+                print("|Enter 3 to exit supplier search!           |")
+                print('---------------------------------------------')
                 ss_choice=int(input("Enter your choice!\n"))
                 if ss_choice==1 :
                         s_searchbyname()
