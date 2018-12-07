@@ -1,3 +1,6 @@
 medi_name,med_id,sale,quantity,sale_date,sale_month,sale_year,customer_name,customer_id,total
 Allegra,1,110.0,1,07,12,2018,Vir,1,110.0
 Allegra,1,110.0,16,07,12,2018,Vir,1,1760.0
+Crocin,2,20.0,1,07,12,2018,Vir,1,20.0
+Crocin,2,20.0,5,07,12,2018,Vir,1,100.0
+Crocin,2,20.0,90,07,12,2018,Vir,1,1800.0

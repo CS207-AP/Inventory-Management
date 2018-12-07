@@ -53,15 +53,13 @@ def cust_invoice():
 		quantity = int(input("Enter quantity : "))
 		customer_name = input("Enter name of customer : ")
 		with open('cus_men.csv','r') as csvfile:
-        	
-        	reader=csv.DictReader(csvfile)
-        	for row in reader:
-            	if row['customer_name']==customer_name:
-					customer_id = input("Enter customer id : ")
-		total = quantity * sale
-		medicinename.append(medi_name)
-		medicnecost.append(sale)
-		medicinequantity.append(quantity)
+
+			reader=csv.DictReader(csvfile)
+			for row in reader:
+				if row['customer_name']==customer_name:
+					customer_id = row['customer_id']
+		total = 0
+		
 		
 		
 		tempfile = NamedTemporaryFile(mode='w', delete=False)
@@ -77,11 +75,15 @@ def cust_invoice():
 				if row['medi_name'] == medi_name:
 					med_id = row['med_id']
 					sale = float(row['sale'])
+					medicinename.append(medi_name)
+					medicnecost.append(sale)
+					medicinequantity.append(quantity)
+					total = quantity * sale
 					if quantity <=int(row['quantity']):
 						row['quantity'] = int(row['quantity']) - quantity
 					else:
 						print("Only",int(row['quantity']),"remaining in stock")	
-						break
+						return
 					if int(row['quantity'])<int(row['min_quantity']):
 						row['to_pur'] = int(row['min_quantity']) -int(row['quantity'])
 					else:

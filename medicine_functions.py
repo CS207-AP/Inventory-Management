@@ -1,4 +1,5 @@
 import csv
+import sys
 from tempfile import NamedTemporaryFile
 import shutil
 import datetime
@@ -9,6 +10,13 @@ def add_medicine():
 		writer = csv.DictWriter(csvfile,fieldnames = columns)
 		
 		medi_name = input("Enter medicine name : ")
+		with open('medicine.csv','r+') as csfile:
+			reader=csv.DictReader(csfile)
+			for row in reader:
+				if row['medi_name'] == medi_name:
+					print("Medicine Already exists.")
+					return
+
 		med_id = input("Enter ID : ")
 		sale = float(input("Enter sale price : "))
 		unit = float(input("Enter cost price : "))
@@ -84,7 +92,7 @@ def medicine_to_be_purchased():
 		for row in reader:
 			if int(row['to_pur']) >0:
 				count+=1
-				print('Name : ', row['medi_name'],'\n','Quantity : ',row['quantity'],'\n','Minimum Quantity : ',row['min_quantity']\
+				print(' Name : ', row['medi_name'],'\n','Quantity : ',row['quantity'],'\n','Minimum Quantity : ',row['min_quantity']\
 				,'\n','To be purchased : ',row['to_pur'],'\n','Supplier ID : ',row['sup_id'])   
 	if count == 0:
-		print("No medicine to be purchased")			        
+		print("No medicine to be purchased.\n")			        

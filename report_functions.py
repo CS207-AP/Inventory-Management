@@ -115,6 +115,5 @@ def profit_report():
                                 count2=count2+float(r['cost'])
         profit = count1-count2
         print("Profit for ", month, " - ", year, " is ", profit, "!\n")
-def min_quant_update():
-    print('test')
+
 

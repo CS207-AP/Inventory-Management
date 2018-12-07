@@ -1,2 +1,6 @@
 medi_name,med_id,sale,unit,quantity,min_quantity,comp_name,sup_id,to_pur
 Allegra,1,110,50.0,2,5,Sun,1,3
+Crocin,2,20.0,8.0,4,20,Cipla,1,16
+Uprise,3,150.0,100.0,20,10,Suntel,1,0
+Calpol,4,130.0,70.0,20,10,Cap,1,0
+Beudamate200,5,260.0,110.0,15,5,Cipla,1,0
