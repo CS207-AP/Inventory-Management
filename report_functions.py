@@ -9,18 +9,18 @@ year = d.strftime("%Y")
 
 def day_sale():
     print('Enter Date : ')
-    date = int(input())
+    date = input()
     print('Enter Month : ')
-    month = int(input())
+    month = input()
     print('Enter Year : ')
-    year = int(input())
-    count=0
+    year = input()
+    count=0.0
     with open('sales.csv','r+') as csvfile:
         reader = csv.DictReader(csvfile)
         print('-----------------Day\'s Sales-----------------')
         for r in reader:
             if r['sale_date']==date and r['sale_month']==month and r['sale_year']==year :
-                count=count+r['total']
+                count=count+float(r['total'])
                 print('Medicine Name : ', r['medi_name'])
                 print('Medicine Id : ', r['med_id'])
                 print('Sale : ', r['sale'])
@@ -32,16 +32,16 @@ def day_sale():
         print('-----------------------------------------------')
 def month_sale():
     print('Enter Month : ')
-    month = int(input())
+    month = input()
     print('Enter Year : ')
-    year = int(input())
-    count=0
+    year = input()
+    count=0.0
     with open('sales.csv','r+') as csvfile:
         reader = csv.DictReader(csvfile)
         print('-----------------Day\'s Sales-----------------')
         for r in reader:
             if r['sale_month']==month and r['sale_year']==year :
-                count=count+r['total']
+                count=count+float(r['total'])
                 print('Medicine Name : ', r['medi_name'])
                 print('Medicine Id : ', r['med_id'])
                 print('Sale : ', r['sale'])
@@ -53,18 +53,18 @@ def month_sale():
         print('-----------------------------------------------')
 def day_purchase():
     print('Enter Date : ')
-    date = int(input())
+    date = input()
     print('Enter Month : ')
-    month = int(input())
+    month = input()
     print('Enter Year : ')
-    year = int(input())
-    count=0
+    year = input()
+    count=0.0
     with open('purchase.csv','r+') as csvfile:
         reader = csv.DictReader(csvfile)
         print('-----------------Day\'s Purchase-----------------')
         for r in reader:
             if r['pur_date']==date and r['pur_month']==month and r['pur_year']==year :
-                count=count+r['total']
+                count=count+float(r['total'])
                 print('Medicine Name : ', r['medi_name'])
                 print('Medicine Id : ', r['med_id'])
                 print('Purchase cost per item : ', r['unit'])
@@ -76,16 +76,16 @@ def day_purchase():
         print('-----------------------------------------------')
 def month_purchase():
     print('Enter Month : ')
-    month = int(input())
+    month = input()
     print('Enter Year : ')
-    year = int(input())
-    count=0
+    year = input()
+    count=0.0
     with open('purchase.csv','r+') as csvfile:
         reader = csv.DictReader(csvfile)
         print('-----------------Day\'s Purchase-----------------')
         for r in reader:
             if r['pur_month']==month and r['pur_year']==year :
-                count=count+r['total']
+                count=count+float(r['total'])
                 print('Medicine Name : ', r['medi_name'])
                 print('Medicine Id : ', r['med_id'])
                 print('Purchase cost per item : ', r['unit'])
@@ -97,21 +97,21 @@ def month_purchase():
         print('-----------------------------------------------')
 def profit_report():
         print('Enter Month : ')
-        month = int(input())
+        month = input()
         print('Enter Year : ')
-        year = int(input())
-        count1=0
-        count2=0
+        year = input()
+        count1=0.0
+        count2=0.0
         with open('sales.csv','r+') as csvfile :
                 reader = csv.DictReader(csvfile)
                 for r in reader:
                         if r['sale_month']==month and r['sale_year']==year :
-                                count1=count1+r['total']
+                                count1=count1+float(r['total'])
         with open('purchase.csv', 'r+') as csvfile :
                 reader = csv.DictReader(csvfile)
                 for r in reader:
-                        if r['sale_month']==month and r['sale_year']==year :
-                                count2=count2+r['cost']
+                        if r['pur_month']==month and r['pur_year']==year :
+                                count2=count2+float(r['cost'])
         profit = count1-count2
         print("Profit for ", month, " - ", year, " is ", profit, "!\n")
 def min_quant_update():
