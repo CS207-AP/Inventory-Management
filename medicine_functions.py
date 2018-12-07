@@ -52,28 +52,27 @@ def update_medicine():
         med_name =input('Enter the name of the medicine you want to modify : ')
         for row in reader:
             if row['medi_name'] == med_name:
-				choice=0
-				print('---------------------------------------------')
-				print('|1.To update Name                           |')
-				print('---------------------------------------------')
-				print('|2.To update Cost price                     |')
-				print('---------------------------------------------')
-				print('|3.To update Sale price                     |')
-				print('---------------------------------------------')
-				print('|4.To update supplier ID                    |')
-				print('---------------------------------------------')
-                choice=int(input())
-                if(choice==1):
-                    row['medi_name']=input("Enter the new name : ")
+            	print('---------------------------------------------')
+            	print('|1.To update Name                           |')
+            	print('---------------------------------------------')
+            	print('|2.To update Cost price                     |')
+            	print('---------------------------------------------')
+            	print('|3.To update Sale price                     |')
+            	print('---------------------------------------------')
+            	print('|4.To update supplier ID                    |')
+            	print('---------------------------------------------')
+            	choice=int(input())
+            	if(choice==1):
+            		row['medi_name']=input("Enter the new name : ")
 
-                elif(choice==2):
-                    row['cost']=input("Enter the new cost price : ")
+            	elif(choice==2):
+            		row['cost']=input("Enter the new cost price : ")
 
-                elif(choice==3):
-                    row['sale']=input("Enter the new sale price : ")
+            	elif(choice==3):
+            		row['sale']=input("Enter the new sale price : ")
 
-                elif(choice==4):
-                    row['sup_id']=input("Enter the new supplier ID : ")    
+            	elif(choice==4):
+            		row['sup_id']=input("Enter the new supplier ID : ")    
             row = {'medi_name':row['medi_name'],'med_id':row['med_id'],'sale':row['sale'],'unit':row['unit'],'quantity':row['quantity'],\
 		    'min_quantity':row['min_quantity'],'comp_name':row['comp_name'],'sup_id':row['sup_id'],'to_pur':row['to_pur']}
             writer.writerow(row)
