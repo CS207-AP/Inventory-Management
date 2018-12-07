@@ -8,8 +8,7 @@ month= d.strftime("%m")
 year = d.strftime("%Y")
 def sup_invoice():
 	medi_name = input("Enter medicine name : ")
-	med_id = input("Enter ID : ")
-	unit = float(input("Enter cost price : "))
+	
 	quantity = int(input("Enter quantity : "))
 	sup_id = input("Enter supplier id : ")
 	cost = quantity * unit
@@ -29,6 +28,8 @@ def sup_invoice():
 		
 		for row in reader:
 			if row['medi_name'] == medi_name:
+				med_id = row['med_id']
+				unit = float(row['unit'])
 				row['quantity'] = int(row['quantity']) + quantity
 				if int(row['quantity'])<int(row['min_quantity']):
 					row['to_pur'] = int(row['min_quantity']) -int(row['quantity'])
@@ -48,11 +49,15 @@ def cust_invoice():
 	while i!=1:
 
 		medi_name = input("Enter medicine name : ")
-		med_id = input("Enter ID : ")
-		sale = float(input("Enter sale price : "))
+		customer_id = ""
 		quantity = int(input("Enter quantity : "))
 		customer_name = input("Enter name of customer : ")
-		customer_id = input("Enter customer id : ")
+		with open('cus_men.csv','r') as csvfile:
+        	
+        	reader=csv.DictReader(csvfile)
+        	for row in reader:
+            	if row['customer_name']==customer_name:
+					customer_id = input("Enter customer id : ")
 		total = quantity * sale
 		medicinename.append(medi_name)
 		medicnecost.append(sale)
@@ -70,6 +75,8 @@ def cust_invoice():
 
 			for row in reader:
 				if row['medi_name'] == medi_name:
+					med_id = row['med_id']
+					sale = float(row['sale'])
 					if quantity <=int(row['quantity']):
 						row['quantity'] = int(row['quantity']) - quantity
 					else:
@@ -95,8 +102,10 @@ def cust_invoice():
 	
 	print("|======Generating invoice======|\n")
 	print("Ashoka Pharmacy\n")
-	print("Date:", d.strftime("%x"),"\n")
-	print("Time:", d.strftime("%X"),"\n")
+	print("Date:", d.strftime("%x"))
+	print("Time:", d.strftime("%X"))
+	print("Customer:", customer_name)
+	print("ID:", customer_id)
 	print("|Name======quantity=price=total|")
 	for x in range(len(medicinename)):
 		print("|",medicinename[x],"|",medicinequantity[x],"|",medicnecost[x],"|", medicinequantity[x] * medicnecost[x])

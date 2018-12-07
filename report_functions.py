@@ -97,5 +97,12 @@ def month_purchase():
         print('-----------------------------------------------')
 def profit_report():
     print('test')
-def min_quant_update():
-    print('test')
+"""def min_quant_update():
+	medid = [1]
+	salequant = [1]
+	with open('sales.csv','r+') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+        	for x in range """
+
+    
