@@ -7,7 +7,7 @@ def add_medicine():
 	with open('medicine.csv','a+') as csvfile:
 		columns = ['medi_name','med_id','sale','unit','quantity','min_quantity', 'comp_name', 'sup_id','to_pur']
 		writer = csv.DictWriter(csvfile,fieldnames = columns)
-		writer.writeheader()
+		
 		medi_name = input("Enter medicine name : ")
 		med_id = input("Enter ID : ")
 		sale = float(input("Enter sale price : "))
@@ -30,7 +30,7 @@ def add_medicine():
 			pur_year = d.strftime("%Y")
 			columns = ['medi_name','med_id','unit','quantity','pur_date', 'pur_month','pur_year','sup_id','cost']
 			writer = csv.DictWriter(csvfile,fieldnames = columns)
-			writer.writeheader()
+			
 			writer.writerow({'medi_name':medi_name,'med_id':med_id,'unit':unit,'quantity':quantity,'pur_date':pur_date,'pur_month':pur_month,'pur_year':pur_year,'sup_id':sup_id,'cost':cost})
 
 
@@ -40,7 +40,7 @@ def search_medicine():
         reader=csv.DictReader(csvfile)
         for row in reader:
             if row['medi_name'] == name:
-                print('Name : ', row['medi_name'],'\n','Quantity : ',row['quantity'],'\n','Price : ',row['sale'])	
+                print(' Name :', row['medi_name'],'\n','Quantity : ',row['quantity'],'\n','Price : ',row['sale'])	
 
 def update_medicine():
     tempfile = NamedTemporaryFile(mode='w', delete=False)
@@ -79,9 +79,13 @@ def update_medicine():
             writer.writerow(row)
     shutil.move(tempfile.name, 'medicine.csv')
 def medicine_to_be_purchased():
+	count = 0
 	with open('medicine.csv','r') as csvfile:
 		reader=csv.DictReader(csvfile)
 		for row in reader:
 			if int(row['to_pur']) >0:
+				count+=1
 				print('Name : ', row['medi_name'],'\n','Quantity : ',row['quantity'],'\n','Minimum Quantity : ',row['min_quantity']\
-				,'\n','To be purchased : ',row['to_pur'],'\n','Supplier ID : ',row['sup_id'])           
+				,'\n','To be purchased : ',row['to_pur'],'\n','Supplier ID : ',row['sup_id'])   
+	if count == 0:
+		print("No medicine to be purchased")			        

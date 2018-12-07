@@ -11,7 +11,7 @@ def medicine_menu():
         print('---------------------------------------------')
         print('|Enter 2 to search medicine                 |')
         print('---------------------------------------------')
-        print('|Enter 3 to update inventory                |')
+        print('|Enter 3 to update medicine info            |')
         print('---------------------------------------------') 
         print('|Enter 4 for medicines to be purchased list |')
         print('---------------------------------------------')

@@ -13,7 +13,7 @@ def create_supplier():
         with open('supplier.csv', 'a+') as csvfile:
                 columns = ['sup_name', 'sup_id', 'sup_city', 'sup_contact', 'sup_email']
                 writer = csv.DictWriter(csvfile, fieldnames = columns)
-                writer.writeheader()
+                
                 sup_name = input("Enter New Supplier's Name : ")
                 sup_id = supplier_id_generator()
                 print('Unique Supplier ID Generated : ', sup_id)
