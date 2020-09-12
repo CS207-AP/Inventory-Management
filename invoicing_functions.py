@@ -37,11 +37,11 @@ def sup_invoice():
                     row['to_pur'] = int(row['min_quantity']) -int(row['quantity'])
                 else:
                     row['to_pur'] = 0
-            rowWrite = {'medi_name':row['medi_name'], 'med_id':row['med_id'], 'sale':row['sale'], \
+            row_write = {'medi_name':row['medi_name'], 'med_id':row['med_id'], 'sale':row['sale'], \
                    'unit':row['unit'], 'quantity':row['quantity'], \
                    'min_quantity':row['min_quantity'], 'comp_name':row['comp_name'], \
                    'sup_id':row['sup_id'], 'to_pur':row['to_pur']}
-            writer.writerow(rowWrite)
+            writer.writerow(row_write)
 
     cost = quantity * unit
 
@@ -65,9 +65,11 @@ def cust_invoice():
     medicinecost = []
     medicinequantity = []
 
-    while i != True:
+    while i is not True:
         medi_name = input("Enter medicine name : ")
-        customer_id = ""
+        customer_id = 0
+        sale = 0.0
+        total = 0.0
         quantity = int(input("Enter quantity : "))
         customer_name = input("Enter name of customer : ")
 
@@ -103,11 +105,11 @@ def cust_invoice():
                         row['to_pur'] = int(row['min_quantity']) -int(row['quantity'])
                     else:
                         row['to_pur'] = 0
-                rowWrite = {'medi_name':row['medi_name'], 'med_id':row['med_id'], 'sale':row['sale'], \
-                       'unit':row['unit'], 'quantity':row['quantity'],\
-                       'min_quantity':row['min_quantity'], 'comp_name':row['comp_name'], \
-                       'sup_id':row['sup_id'], 'to_pur':row['to_pur']}
-                writer.writerow(rowWrite)
+                row_write = {'medi_name':row['medi_name'], 'med_id':row['med_id'], \
+                             'sale':row['sale'], 'unit':row['unit'], 'quantity':row['quantity'],\
+                             'min_quantity':row['min_quantity'], 'comp_name':row['comp_name'], \
+                             'sup_id':row['sup_id'], 'to_pur':row['to_pur']}
+                writer.writerow(row_write)
         shutil.move(tempfile.name, 'medicine.csv')
 
         with open('sales.csv', 'a+') as csvfile:
